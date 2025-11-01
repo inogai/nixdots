@@ -11,6 +11,7 @@
     ./modules/sketchybar
     ./modules/kitty
     ./modules/shell
+    ./modules/rust
   ];
 
   # This value determines the Home Manager release that your configuration is
