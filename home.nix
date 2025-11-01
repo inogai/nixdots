@@ -10,6 +10,7 @@
     ./modules/aerospace
     ./modules/sketchybar
     ./modules/kitty
+    ./modules/shell
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -25,11 +26,14 @@
   # environment.
   home.packages = with pkgs; [
     git
-    neovim
-    zoxide
+    wget
+    curl
+    fd
+    ripgrep
     fzf
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
+    neovim
+    jq
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
@@ -75,41 +79,7 @@
   #  /etc/profiles/per-user/inogai/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
-
-  programs.kitty = {
-    enable = true;
-    settings = {
-      shell = "zsh -ic ${pkgs.nushell}/bin/nu"; # run with zsh -ic to load nix env vars
-    };
-  };
-
-  programs.nushell = {
-    enable = true;
-    extraConfig = builtins.readFile (pkgs.runCommand "zoxide-init" {} "${pkgs.zoxide}/bin/zoxide init nushell > $out");
-  };
-
-  programs.carapace = {
-      enable = true;
-      enableNushellIntegration = true;
-  };
-
-  programs.starship = {
-    enable = true;
-    settings = {
-      add_newline = true;
-      character = {
-        success_symbol = "[➜](bold green)";
-        error_symbol = "[➜](bold red)";
-      };
-    };
-  };
-  
-  programs.atuin = {
-    enable = true;
-    settings = {
-    };
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
