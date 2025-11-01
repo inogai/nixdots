@@ -9,6 +9,7 @@
   imports = [
     ./modules/aerospace
     ./modules/sketchybar
+    ./modules/kitty
   ];
 
   # This value determines the Home Manager release that your configuration is
