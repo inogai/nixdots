@@ -12,13 +12,20 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur-packages = {
+      url = "github:inogai/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, home-manager, fenix, ... }:
+    { nixpkgs, home-manager, fenix, nur-packages, ... }:
     let
       system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
+      overlay = final: prev: {
+        inogai = nur-packages.packages.${final.system};
+      };
+      pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
     in
     {
       homeConfigurations."inogai" = home-manager.lib.homeManagerConfiguration {

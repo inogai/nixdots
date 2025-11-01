@@ -12,6 +12,7 @@
     ./modules/kitty
     ./modules/shell
     ./modules/rust
+    ./modules/fzfmenu
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -35,6 +36,8 @@
 
     neovim
     jq
+
+    nix-prefetch-git
 
     qutebrowser # TODO: controlled config
   ];
