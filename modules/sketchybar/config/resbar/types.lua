@@ -1,0 +1,83 @@
+---@class FontProperties
+---@field family? string # The font family to be used, default: Hack Nerd Font
+---@field style? string # The font style to be used, default: Bold
+---@field size? number # The font size to be used, default: 14.0
+
+---@class ShadowProperties
+---@field drawing? boolean # If the shadow should be drawn, default: off
+---@field color? integer # Color of the shadow (ARGB hex format), default: 0xff000000
+---@field angle? integer # Angle of the shadow (positive integer), default: 30
+---@field distance? integer # Distance of the shadow (positive integer), default: 5
+
+---@class ImageProperties
+---@field drawing? boolean # If the image should draw, default: off
+---@field scale? number # The scale factor that should be applied to the image, default: 1.0
+---@field border_color? integer # Color of the image border (ARGB hex format), default: 0x00000000
+---@field border_width? integer # Width of the image border (positive integer), default: 0
+---@field corner_radius? integer # Corner radius of the image (positive integer), default: 0
+---@field padding_left? integer # Padding to the left of the image, default: 0
+---@field padding_right? integer # Padding to the right of the image, default: 0
+---@field y_offset? integer # Vertical offset applied to the image, default: 0
+---@field string? string # The image to display in the bar (path, app.<bundle-id>, app.<name>, media.artwork)
+---@field shadow? ShadowProperties # Images support all shadow properties
+
+---@class BackgroundProperties
+---@field drawing? boolean # If the background should be rendered, default: off
+---@field color? integer # Fill color of the background (ARGB hex format), default: 0x00000000
+---@field border_color? integer # Color of the background's border (ARGB hex format), default: 0x00000000
+---@field border_width? integer # Width of the background border (positive integer), default: 0
+---@field height? integer # Overrides the height of the background (positive integer), default: 0
+---@field corner_radius? integer # Corner radius of the background (positive integer), default: 0
+---@field padding_left? integer # Padding to the left of the background, default: 0
+---@field padding_right? integer # Padding to the right of the background, default: 0
+---@field y_offset? integer # Vertical offset applied to the background, default: 0
+---@field clip? number # By how much the background clips the bar (i.e. transparent holes in the bar), default: 0.0
+---@field image? string | ImageProperties # The image to display in the bar (path, app.<bundle-id>, app.<name>, media.artwork)
+---@field shadow? ShadowProperties # Backgrounds support all shadow properties
+
+---@class TextProperties
+---@field drawing? boolean # If the text is rendered
+---@field highlight? boolean # If the text uses the highlight_color or the regular color
+---@field color? integer # Color used to render the text (ARGB hex format), default: 0xffffffff
+---@field highlight_color? integer # Highlight color of the text (e.g. for active space icon) (ARGB hex format), default: 0xff000000
+---@field padding_left? integer # Padding to the left of the text, default: 0
+---@field padding_right? integer # Padding to the right of the text, default: 0
+---@field y_offset? integer # Vertical offset applied to the text, default: 0
+---@field font? string|FontProperties # The font to be used for the text in <family>:<type>:<size> format, default: Hack Nerd Font:Bold:14.0
+---@field string? string # Sets the text to the specified string
+---@field scroll_duration? integer # Sets the scroll speed of text truncated by max_chars on items with scroll_texts enabled, default: 100
+---@field max_chars? integer # Sets the maximum characters to display (can be scrolled via the items scroll_texts property), default: 0
+---@field width? integer|string # Makes the text use a fixed width given in points or 'dynamic', default: dynamic
+---@field align? "center"|"left"|"right" # Aligns the text in its container when it has a fixed width larger than the content width, default: left
+---@field background? BackgroundProperties # Texts support all background properties
+---@field shadow? ShadowProperties # Texts support all shadow properties
+
+---@class GeometryProperties
+---@field drawing? boolean # If the item should be drawn into the bar, default: on
+---@field position? "left" | "right" | "center" # Position of the item in the bar
+---@field space? integer | integer[] # Spaces to show this item on (positive integer list), default: 0
+---@field display? integer | integer[] | "active" # Displays to show this item on (positive integer list or "active"), default: 0
+---@field ignore_association? boolean # Ignores all space / display associations while on, default: off
+---@field y_offset? integer # Vertical offset applied to the item, default: 0
+---@field padding_left? integer # The padding applied left of the item, default: 0
+---@field padding_right? integer # The padding applied right of the item, default: 0
+---@field width? integer | string # Makes the item use a fixed width given in points or 'dynamic', default: dynamic
+---@field scroll_texts? boolean # Controls the automatic scroll of all items texts, which are truncated by the max_chars property, default: off
+---@field blur_radius? integer # The blur radius applied to the background of the item (positive integer), default: 0
+---@field background? BackgroundProperties # Items support all background properties
+
+---@class ScriptingProperties
+---@field script? string # Script to run on an event (path or inline string)
+---@field click_script? string # Script to run on a mouse click (Difference to mouse.clicked event: #109) (path or inline string)
+---@field update_freq? integer # Time in seconds between routine script executions (positive integer, 0 means never), default: 0
+---@field updates? boolean | "when_shown" # If and when the item updates e.g. via script execution, default: on
+---@field mach_helper? string # Registers a helper for direct event notifications (example)
+
+---@class resbar.ItemProps: GeometryProperties, ScriptingProperties
+---@field icon? string | TextProperties # Icon of the item
+---@field label? string | TextProperties # Label of the item
+---@field background? BackgroundProperties # Background properties
+
+---@class resbar.SpaceProps: resbar.ItemProps
+---@field space string # Which space the item represents
+---@field display? integer[] # On which displays the item should be shown

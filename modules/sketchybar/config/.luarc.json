@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "runtime.version": "Lua 5.4",
+  "runtime.path": ["?.lua", "?/init.lua"],
+  "runtime.pathStrict": true,
+  "workspace.library": [
+    "/opt/homebrew/share/lua/5.4",
+    "${addons}/penlight/module/library",
+    "${3rd}/lfs/library"
+  ],
+  "workspace.checkThirdParty": false,
+  "diagnostics.globals": ["inspect", "sbar"]
+}
