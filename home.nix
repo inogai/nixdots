@@ -7,6 +7,7 @@
   home.homeDirectory = "/Users/inogai";
 
   imports = [
+    ./modules/aerospace
     ./modules/sketchybar
   ];
 
