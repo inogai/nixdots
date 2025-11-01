@@ -17,10 +17,11 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+  home.packages = with pkgs; [
+    git
+    neovim
+    zoxide
+    fzf
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -69,6 +70,40 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  programs.kitty = {
+    enable = true;
+    settings = {
+      shell = "zsh -ic ${pkgs.nushell}/bin/nu"; # run with zsh -ic to load nix env vars
+    };
+  };
+
+  programs.nushell = {
+    enable = true;
+    extraConfig = builtins.readFile (pkgs.runCommand "zoxide-init" {} "${pkgs.zoxide}/bin/zoxide init nushell > $out");
+  };
+
+  programs.carapace = {
+      enable = true;
+      enableNushellIntegration = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = true;
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[➜](bold red)";
+      };
+    };
+  };
+  
+  programs.atuin = {
+    enable = true;
+    settings = {
+    };
   };
 
   # Let Home Manager install and manage itself.
