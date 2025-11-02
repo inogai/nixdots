@@ -28,14 +28,19 @@
   # environment.
   home.packages = with pkgs; [
     git
+    gnupg
+    # openssh # use system ssh
     wget
     curl
     fd
     ripgrep
     fzf
+    trash-cli
 
+    lazygit
     neovim
     jq
+    opencode
 
     nix-prefetch-git
 
@@ -77,6 +82,5 @@
     EDITOR = "nvim";
   };
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
