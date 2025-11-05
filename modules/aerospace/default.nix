@@ -1,9 +1,11 @@
-{ config, pkgs, nur-packages, ... }:
-
-let
-  bordersPath = ".config/aerospace/borders";
-in
 {
+  config,
+  pkgs,
+  nur-packages,
+  ...
+}: let
+  bordersPath = ".config/aerospace/borders";
+in {
   home.packages = with pkgs; [
     bash
     aerospace
@@ -115,7 +117,6 @@ in
       alt-shift-s = ['move-node-to-workspace S', 'workspace S']
 
       alt-q = 'exec-and-forget ${pkgs.kitty}/bin/kitty -1 -d ~/'
-      alt-d = 'exec-and-forget ${pkgs.inogai.fzfmenu}/bin/fzfmenu'
       alt-x = 'close'
       # alt-f = 'exec-and-forget s wm-float'
       alt-m = 'reload-config'
@@ -156,3 +157,4 @@ in
     '';
   };
 }
+
