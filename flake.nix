@@ -18,26 +18,31 @@
     };
   };
 
-  outputs =
-    { nixpkgs, home-manager, nur-packages, nix-yazi-flavors, ... }:
-    let
-      system = "aarch64-darwin";
-      overlay = final: prev: (nix-yazi-flavors.overlays.default final prev) // {
+  outputs = {
+    nixpkgs,
+    home-manager,
+    nur-packages,
+    nix-yazi-flavors,
+    ...
+  }: let
+    system = "aarch64-darwin";
+    overlay = final: prev:
+      (nix-yazi-flavors.overlays.default final prev)
+      // {
         inogai = nur-packages.packages.${final.system};
       };
-      pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
-    in
-    {
-      homeConfigurations."inogai" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+    pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
+  in {
+    homeConfigurations."inogai" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
+      # Specify your home configuration modules here, for example,
+      # the path to your home.nix.
+      modules = [./home.nix];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-        extraSpecialArgs = { };
-      };
+      # Optionally use extraSpecialArgs
+      # to pass through arguments to home.nix
+      extraSpecialArgs = {};
     };
+  };
 }
