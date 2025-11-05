@@ -46,6 +46,9 @@
     nix-prefetch-git
 
     qutebrowser # TODO: controlled config
+
+    victor-mono
+    nerd-fonts.symbols-only
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
