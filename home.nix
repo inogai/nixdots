@@ -35,6 +35,7 @@
     fd
     ripgrep
     fzf
+    github-cli
     trash-cli
 
     lazygit
