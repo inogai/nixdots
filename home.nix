@@ -11,7 +11,6 @@
     ./modules/sketchybar
     ./modules/kitty
     ./modules/shell
-    ./modules/rust
     ./modules/fzfmenu
   ];
 

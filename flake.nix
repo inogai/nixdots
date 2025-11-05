@@ -8,10 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nur-packages = {
       url = "github:inogai/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +19,7 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, fenix, nur-packages, nix-yazi-flavors, ... }:
+    { nixpkgs, home-manager, nur-packages, nix-yazi-flavors, ... }:
     let
       system = "aarch64-darwin";
       overlay = final: prev: (nix-yazi-flavors.overlays.default final prev) // {
@@ -41,7 +37,7 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-        extraSpecialArgs = { inherit fenix; };
+        extraSpecialArgs = { };
       };
     };
 }
