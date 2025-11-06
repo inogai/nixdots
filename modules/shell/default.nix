@@ -20,7 +20,7 @@
         $env.LS_COLORS = (vivid generate catppuccin-mocha)
       '';
     shellAliases = {
-      nv = "nix run ~/flakes/nixCats --";
+      nv = "nvim-inogai";
     };
   };
 

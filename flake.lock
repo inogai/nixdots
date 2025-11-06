@@ -7,16 +7,34 @@
         ]
       },
       "locked": {
-        "lastModified": 1762296971,
-        "narHash": "sha256-Jyv3L5rrUYpecON+9zyFz2VqgTSTsIG35fXuCyuCQv0=",
+        "lastModified": 1762351818,
+        "narHash": "sha256-0ptUDbYwxv1kk/uzEX4+NJjY2e16MaAhtzAOJ6K0TG0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "34fe48801d2a5301b814eaa1efb496499d06cebc",
+        "rev": "b959c67241cae17fc9e4ee7eaf13dfa8512477ea",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "inogai": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1762360166,
+        "narHash": "sha256-4808trsC08EFl2yNE4JOGlAzHxFcLr4hA1wchk/TTdc=",
+        "owner": "inogai",
+        "repo": "nur-packages",
+        "rev": "88eddfd77a6569fddbed7031beffd12fe917982c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "inogai",
+        "repo": "nur-packages",
         "type": "github"
       }
     },
@@ -41,6 +59,21 @@
         "type": "github"
       }
     },
+    "nixCats": {
+      "locked": {
+        "lastModified": 1762227818,
+        "narHash": "sha256-GSnU4XJucZojGVBGY7djqsT37P9YViCMTVw58tsqrOs=",
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "rev": "fa7991a4fa7d7227486910ce6724215b88eb8296",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1762111121,
@@ -57,6 +90,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1762286042,
+        "narHash": "sha256-OD5HsZ+sN7VvNucbrjiCz7CHF5zf9gP51YVJvPwYIH8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "12c1f0253aa9a54fdf8ec8aecaafada64a111e24",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur-packages": {
       "inputs": {
         "nixpkgs": [
@@ -64,11 +113,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762332460,
-        "narHash": "sha256-Ri1ye9Kft3AfEIwbyeZuKBCkiY5Sk7Zt4gQVnJHF/MQ=",
+        "lastModified": 1762360166,
+        "narHash": "sha256-4808trsC08EFl2yNE4JOGlAzHxFcLr4hA1wchk/TTdc=",
         "owner": "inogai",
         "repo": "nur-packages",
-        "rev": "3321c72f35e8d13ca7ee19fe8af356030a1204cb",
+        "rev": "88eddfd77a6569fddbed7031beffd12fe917982c",
         "type": "github"
       },
       "original": {
@@ -77,12 +126,35 @@
         "type": "github"
       }
     },
+    "nvim-inogai": {
+      "inputs": {
+        "inogai": "inogai",
+        "nixCats": "nixCats",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762363511,
+        "narHash": "sha256-seIrSFvVat77QSasHaoKyAROAP9HDdmiKq4eO4kJo50=",
+        "owner": "inogai",
+        "repo": "nvim-inogai",
+        "rev": "d4e911618d69975d74d216d70271327a9684e07b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "inogai",
+        "repo": "nvim-inogai",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nix-yazi-flavors": "nix-yazi-flavors",
         "nixpkgs": "nixpkgs",
-        "nur-packages": "nur-packages"
+        "nur-packages": "nur-packages",
+        "nvim-inogai": "nvim-inogai"
       }
     },
     "systems": {

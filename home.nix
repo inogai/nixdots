@@ -40,7 +40,6 @@
     trash-cli
 
     lazygit
-    neovim
     jq
     opencode
 
@@ -50,6 +49,9 @@
 
     victor-mono
     nerd-fonts.symbols-only
+
+    inogai.winterm-rs
+    nvim-inogai
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -84,7 +86,7 @@
   #  /etc/profiles/per-user/inogai/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "nvim-inogai";
   };
 
   programs.home-manager.enable = true;
