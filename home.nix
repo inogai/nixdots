@@ -14,6 +14,7 @@
     ./modules/kitty
     ./modules/shell
     ./modules/fzfmenu
+    ./modules/qutebrowser
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -44,8 +45,6 @@
     opencode
 
     nix-prefetch-git
-
-    qutebrowser # TODO: controlled config
 
     victor-mono
     nerd-fonts.symbols-only
