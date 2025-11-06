@@ -20,7 +20,7 @@
 in {
   home.packages = with pkgs; [
     fzf
-    # inogai.fzfmenu
+    inogai.fzfmenu
   ];
 
   # TODO: use a less hacky config
@@ -41,7 +41,7 @@ in {
     name = "app_launcher"
     description = "Launch applications based on your desktop environment."
     prefix = ""
-    picker = "${pkgs.fd}/bin/fd '\\.app$' /Applications $HOME/Applications /System/Applications -x echo {/}"
+    picker = "${pkgs.fd}/bin/fd -L '\\.app$' /Applications $HOME/Applications /System/Applications -x echo {/}"
     runner = "/usr/bin/open -a '{}'"
     bind_change = false
   '';

@@ -118,6 +118,7 @@ in {
 
       alt-q = 'exec-and-forget ${pkgs.kitty}/bin/kitty -1 -d ~/'
       alt-x = 'close'
+      alt-d = 'exec-and-forget ${pkgs.inogai.fzfmenu}/bin/fzfmenu'
       # alt-f = 'exec-and-forget s wm-float'
       alt-m = 'reload-config'
 
