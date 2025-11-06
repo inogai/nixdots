@@ -42,7 +42,7 @@ in {
     description = "Launch applications based on your desktop environment."
     prefix = ""
     picker = "${pkgs.fd}/bin/fd '\\.app$' /Applications $HOME/Applications /System/Applications -x echo {/}"
-    runner = "/usr/bin/open -a '{/}'"
+    runner = "/usr/bin/open -a '{}'"
     bind_change = false
   '';
 }
