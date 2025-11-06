@@ -97,7 +97,7 @@ in {
         'focus-monitor --wrap-around next',
       ]
 
-      # alt-tab = 'exec-and-forget s fzfmenu pick-focus'
+      alt-tab = 'exec-and-forget fzfmenu -q="fo "'
       # alt-shift-tab = 'exec-and-forget s fzfmenu summon-window'
 
       alt-1 = 'workspace 1'
@@ -116,9 +116,9 @@ in {
       alt-shift-a = ['move-node-to-workspace A', 'workspace A']
       alt-shift-s = ['move-node-to-workspace S', 'workspace S']
 
-      alt-q = 'exec-and-forget ${pkgs.kitty}/bin/kitty -1 -d ~/'
+      alt-q = 'exec-and-forget kitty -1 -d ~/'
       alt-x = 'close'
-      alt-d = 'exec-and-forget ${pkgs.inogai.fzfmenu}/bin/fzfmenu'
+      alt-d = 'exec-and-forget fzfmenu'
       # alt-f = 'exec-and-forget s wm-float'
       alt-m = 'reload-config'
 

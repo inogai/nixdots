@@ -41,7 +41,14 @@ in {
     name = "app_launcher"
     description = "Launch applications based on your desktop environment."
     prefix = ""
-    picker = "${pkgs.fd}/bin/fd -L '\\.app$' /Applications $HOME/Applications /System/Applications -x echo {/}"
+    picker = "fd -L '\\.app$' /Applications $HOME/Applications /System/Applications -x echo {/}"
     runner = "/usr/bin/open -a '{}'"
+
+    [[plugins]]
+    name = "focus"
+    description = "Focus an aerospace window"
+    prefix = "fo "
+    picker = "aerospace list-windows --all"
+    runner = "echo {} | cut -d| -f1 | xargs -I{id} aerospace focus --window-id {id}"
   '';
 }
