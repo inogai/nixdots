@@ -5,7 +5,7 @@
   ...
 }: let
   fzfOptions = import ../../lib/fzf.nix;
-  addQuotes = str: "'${str}'";
+  addQuotes = str: ''"$'${str}'"'';
   joinQuoted = strs: lib.concatStringsSep ", " (lib.map addQuotes strs);
   # TODO: inherit kitty config from module
   kittyConf = pkgs.writeText "fzfmenu-kitty.conf" ''
@@ -43,6 +43,5 @@ in {
     prefix = ""
     picker = "${pkgs.fd}/bin/fd -L '\\.app$' /Applications $HOME/Applications /System/Applications -x echo {/}"
     runner = "/usr/bin/open -a '{}'"
-    bind_change = false
   '';
 }
