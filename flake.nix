@@ -30,6 +30,10 @@
       url = "github:aguirre-matteo/nix-yazi-flavors";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-ai-tools = {
+      url = "github:numtide/nix-ai-tools";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -38,6 +42,7 @@
     nur-packages,
     nvim-inogai,
     nix-yazi-flavors,
+    nix-ai-tools,
     ...
   }: let
     system = "aarch64-darwin";
@@ -46,6 +51,7 @@
       // {
         inogai = nur-packages.packages.${final.system};
         nvim-inogai = nvim-inogai.outputs.packages.${final.system}.nvim-inogai;
+        nix-ai-tools = nix-ai-tools.outputs.packages.${final.system};
       };
     pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
   in {

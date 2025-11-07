@@ -15,6 +15,7 @@
     ./modules/shell
     ./modules/fzfmenu
     ./modules/qutebrowser
+    ./modules/opencode
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -42,7 +43,6 @@
 
     lazygit
     jq
-    opencode
 
     nix-prefetch-git
 
