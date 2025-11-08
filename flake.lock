@@ -47,11 +47,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1762360166,
-        "narHash": "sha256-4808trsC08EFl2yNE4JOGlAzHxFcLr4hA1wchk/TTdc=",
+        "lastModified": 1762437510,
+        "narHash": "sha256-7lzpApAnpMqTyRxh59/YC/riK0J7o/ZkicFavGZPfoE=",
         "owner": "inogai",
         "repo": "nur-packages",
-        "rev": "88eddfd77a6569fddbed7031beffd12fe917982c",
+        "rev": "0a05a7d7cccc186748bd078f06f50ccd34b817d8",
         "type": "github"
       },
       "original": {
@@ -69,11 +69,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1762486452,
-        "narHash": "sha256-pvojh0AZkIT9XIHYzpdDkCRbtDyUGB59iSYaU3MM+ks=",
+        "lastModified": 1762570515,
+        "narHash": "sha256-6GEB2Lq+YYPwoWqvT5j0FsrevtvRuW4cuw/KTz96ZSg=",
         "owner": "numtide",
         "repo": "nix-ai-tools",
-        "rev": "79b5358a65e82cc839e95b82c89c08481ee94e57",
+        "rev": "7761e02548075964cd066f1ba953c1f08d2c64ba",
         "type": "github"
       },
       "original": {
@@ -180,11 +180,11 @@
         "plugins-indent-rainbowline.nvim": "plugins-indent-rainbowline.nvim"
       },
       "locked": {
-        "lastModified": 1762500939,
-        "narHash": "sha256-k/9eEX/8bE5W/Y++SkAI77y3bTbbIzmxZj7HOVOluMU=",
+        "lastModified": 1762573894,
+        "narHash": "sha256-V7bSytFCtw9KzWBRJe6ZZUdjhj2lF7Ic7WSipcVHQ+s=",
         "owner": "inogai",
         "repo": "nvim-inogai",
-        "rev": "e3aa7cac17162f2292d9c8a48fac766f22fe70d3",
+        "rev": "51dd5c49eb213449bd84d9dcaebaa6f0ba8e69e1",
         "type": "github"
       },
       "original": {
