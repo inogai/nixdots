@@ -177,14 +177,15 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "plugins-indent-rainbowline.nvim": "plugins-indent-rainbowline.nvim"
+        "plugins-indent-rainbowline.nvim": "plugins-indent-rainbowline.nvim",
+        "plugins-moegi.nvim": "plugins-moegi.nvim"
       },
       "locked": {
-        "lastModified": 1762573894,
-        "narHash": "sha256-V7bSytFCtw9KzWBRJe6ZZUdjhj2lF7Ic7WSipcVHQ+s=",
+        "lastModified": 1762607523,
+        "narHash": "sha256-gcK0f09lRlmTzrUZdJOzR1usiPoRdOxssqWjfMf2qm8=",
         "owner": "inogai",
         "repo": "nvim-inogai",
-        "rev": "51dd5c49eb213449bd84d9dcaebaa6f0ba8e69e1",
+        "rev": "2aac2b9fb4838f8597a56ed21676747857548869",
         "type": "github"
       },
       "original": {
@@ -206,6 +207,22 @@
       "original": {
         "owner": "TheGLander",
         "repo": "indent-rainbowline.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-moegi.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762606223,
+        "narHash": "sha256-RoCQES2mmZYvh2r2BT4qKXg/FTmk1IZJqfaGhnxIs2U=",
+        "owner": "inogai",
+        "repo": "moegi.nvim",
+        "rev": "d69a472442435415024557e2d9a244c809101bfe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "inogai",
+        "repo": "moegi.nvim",
         "type": "github"
       }
     },
