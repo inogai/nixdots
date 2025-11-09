@@ -139,6 +139,7 @@ in {
         "<F12>" = "devtools";
         "xx" = "config-source";
         "xr" = "greasemonkey-reload;; reload";
+        "xc" = "spawn sh -c 'echo \"{url}\" >> $HOME/urls.txt'";
       };
     };
   };
