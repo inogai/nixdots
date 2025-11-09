@@ -29,11 +29,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762463325,
-        "narHash": "sha256-33YUsWpPyeBZEWrKQ2a1gkRZ7i0XCC/2MYpU6BVeQSU=",
+        "lastModified": 1762704774,
+        "narHash": "sha256-iodz4xQbULkHqetbPu5BCSWsVEzZiiNSv0/dzfH4XiE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0562fef070a1027325dd4ea10813d64d2c967b39",
+        "rev": "be4a9233dd3f6104c9b0fdd3d56f953eb519a4c7",
         "type": "github"
       },
       "original": {
@@ -69,11 +69,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1762570515,
-        "narHash": "sha256-6GEB2Lq+YYPwoWqvT5j0FsrevtvRuW4cuw/KTz96ZSg=",
+        "lastModified": 1762697318,
+        "narHash": "sha256-M8ovdZQ66JHf84v04gWn/4mPNbGP2NkdH/p1JK/41Iw=",
         "owner": "numtide",
         "repo": "nix-ai-tools",
-        "rev": "7761e02548075964cd066f1ba953c1f08d2c64ba",
+        "rev": "6241c04d5b7e348cf788c9fe02a2097bebd81b21",
         "type": "github"
       },
       "original": {
@@ -120,11 +120,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1762363567,
-        "narHash": "sha256-YRqMDEtSMbitIMj+JLpheSz0pwEr0Rmy5mC7myl17xs=",
+        "lastModified": 1762596750,
+        "narHash": "sha256-rXXuz51Bq7DHBlfIjN7jO8Bu3du5TV+3DSADBX7/9YQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ae814fd3904b621d8ab97418f1d0f2eb0d3716f4",
+        "rev": "b6a8526db03f735b89dd5ff348f53f752e7ddc8e",
         "type": "github"
       },
       "original": {
@@ -181,11 +181,11 @@
         "plugins-moegi.nvim": "plugins-moegi.nvim"
       },
       "locked": {
-        "lastModified": 1762607523,
-        "narHash": "sha256-gcK0f09lRlmTzrUZdJOzR1usiPoRdOxssqWjfMf2qm8=",
+        "lastModified": 1762706036,
+        "narHash": "sha256-nUloHApjfhmXNPzpGrL7u+28t9gsL9d/UeP6SNNO3V0=",
         "owner": "inogai",
         "repo": "nvim-inogai",
-        "rev": "2aac2b9fb4838f8597a56ed21676747857548869",
+        "rev": "601498eb0f557cf2f21d01d62beabc19bd5be2d1",
         "type": "github"
       },
       "original": {
@@ -213,15 +213,16 @@
     "plugins-moegi.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1762606223,
-        "narHash": "sha256-RoCQES2mmZYvh2r2BT4qKXg/FTmk1IZJqfaGhnxIs2U=",
+        "lastModified": 1762705897,
+        "narHash": "sha256-BjsVQ8kPJ8wBngHMGzHgAp0r0e69MHL+6ITpeRJ65Ew=",
         "owner": "inogai",
         "repo": "moegi.nvim",
-        "rev": "d69a472442435415024557e2d9a244c809101bfe",
+        "rev": "dbc4ee12276da608765b70747a283f18bdc67942",
         "type": "github"
       },
       "original": {
         "owner": "inogai",
+        "ref": "dev",
         "repo": "moegi.nvim",
         "type": "github"
       }
