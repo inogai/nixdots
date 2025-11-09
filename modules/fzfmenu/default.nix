@@ -41,7 +41,7 @@ in {
     name = "app_launcher"
     description = "Launch applications based on your desktop environment."
     prefix = ""
-    picker = "fd -d1 '\\.app$' /Applications $HOME/Applications /System/Applications $HOME/.nix-profile/Applications -x echo {/}"
+    picker = "fd -d2 -L '\\.app$' /Applications $HOME/Applications /System/Applications -x echo {/}"
     runner = "/usr/bin/open -a '{}'"
 
     [[plugins]]
