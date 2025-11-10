@@ -29,11 +29,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762704774,
-        "narHash": "sha256-iodz4xQbULkHqetbPu5BCSWsVEzZiiNSv0/dzfH4XiE=",
+        "lastModified": 1762787259,
+        "narHash": "sha256-t2U/GLLXHa2+kJkwnFNRVc2fEJ/lUfyZXBE5iKzJdcs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "be4a9233dd3f6104c9b0fdd3d56f953eb519a4c7",
+        "rev": "37a3d97f2873e0f68711117c34d04b7c7ead8f4e",
         "type": "github"
       },
       "original": {
@@ -69,11 +69,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1762697318,
-        "narHash": "sha256-M8ovdZQ66JHf84v04gWn/4mPNbGP2NkdH/p1JK/41Iw=",
+        "lastModified": 1762829063,
+        "narHash": "sha256-L8zyUmhcb+B87qbH0vXfXOY+tzzuknQayq3OgPq719g=",
         "owner": "numtide",
         "repo": "nix-ai-tools",
-        "rev": "6241c04d5b7e348cf788c9fe02a2097bebd81b21",
+        "rev": "ea213e13fde802090a4cdec57631e3374d67d78f",
         "type": "github"
       },
       "original": {
@@ -178,14 +178,15 @@
           "nixpkgs"
         ],
         "plugins-indent-rainbowline.nvim": "plugins-indent-rainbowline.nvim",
-        "plugins-moegi.nvim": "plugins-moegi.nvim"
+        "plugins-moegi.nvim": "plugins-moegi.nvim",
+        "plugins-triforce.nvim": "plugins-triforce.nvim"
       },
       "locked": {
-        "lastModified": 1762706036,
-        "narHash": "sha256-nUloHApjfhmXNPzpGrL7u+28t9gsL9d/UeP6SNNO3V0=",
+        "lastModified": 1762842671,
+        "narHash": "sha256-ioXOrfcoh21TCIon2K9SllqdV/pgRbJ87HVaRnzCESU=",
         "owner": "inogai",
         "repo": "nvim-inogai",
-        "rev": "601498eb0f557cf2f21d01d62beabc19bd5be2d1",
+        "rev": "8ed897f94e353ab7c453a0e0a66ba413b974ab43",
         "type": "github"
       },
       "original": {
@@ -224,6 +225,22 @@
         "owner": "inogai",
         "ref": "dev",
         "repo": "moegi.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-triforce.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762755155,
+        "narHash": "sha256-CS4l3kmemR+XpeGKov4Td5nxyMyHYufvySQaamHtsNk=",
+        "owner": "gisketch",
+        "repo": "triforce.nvim",
+        "rev": "9ba8c3f3d93907c311a102fca253ae0454a6edb8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gisketch",
+        "repo": "triforce.nvim",
         "type": "github"
       }
     },

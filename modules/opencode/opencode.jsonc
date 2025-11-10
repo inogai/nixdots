@@ -8,12 +8,9 @@
         "baseURL": "https://api.linkapi.org/v1"
       },
       "models": {
-        "qwen3-coder-flash": {
-          "name": "Qwen 3 Coder Flash"
+        "glm-4.5": {
+          "name" : "GLM 4.5"
         },
-        "glm-4.5-flash": {
-          "name" : "GLM 4.5 Flash"
-        }
       }
     }
   }
