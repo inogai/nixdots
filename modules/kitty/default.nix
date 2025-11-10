@@ -15,11 +15,6 @@
       italic_font = "Victor Mono Medium Oblique";
       bold_italic_font = "Victor Mono Bold Oblique";
 
-      modify_font_cell_height = "0px";
-      modify_font_baseline = -2;
-      modify_font_underline_position = "130% - 2";
-      modify_font_underline_thickness = 2;
-
       # OS Specific
       confirm_os_window_close = 0;
       hide_window_decorations = "titlebar-only";
@@ -27,7 +22,6 @@
 
       # Remote Control
       allow_remote_control = "yes";
-      remote_control_password = "";
 
       # Cursor Trail
       cursor_trail = 3;
@@ -83,6 +77,12 @@
       # Half-width Kanas
       symbol_map U+FF66–U+FF9D Noto Sans CJK HK Black
 
+      # Font modifications
+      modify_font baseline -2
+      modify_font cell_height 0px
+      modify_font underline_position 130% - 2
+      modify_font underline_thickness 2
+
       # Input Handling
       mouse_map left click ungrabbed mouse_handle_click selection link prompt
       mouse_map cmd+left release grabbed,ungrabbed mouse_handle_click link
@@ -90,8 +90,6 @@
       map shift+page_up scroll_page_up
       map shift+page_down scroll_page_down
       map shift+space combine : send_key ctrl+x : send_key space
-
-      remote_control_password "" set-font-size launch ls
     '';
   };
 }
