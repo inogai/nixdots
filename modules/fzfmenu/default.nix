@@ -7,23 +7,39 @@
   fzfOptions = import ../../lib/fzf.nix;
   addQuotes = str: ''"$'${str}'"'';
   joinQuoted = strs: lib.concatStringsSep ", " (lib.map addQuotes strs);
-  # TODO: inherit kitty config from module
-  kittyConf = pkgs.writeText "fzfmenu-kitty.conf" ''
-    font_size 28
+  kittyConf = let
+    # Fzfmenu-specific kitty settings that override the main config
+    fzfmenuKittyOverrides = {
+      font_size = 30;
+      window_margin_width = "6 0 4";
+      remember_window_size = false;
+      initial_window_width = 1000;
+      initial_window_height = 800;
+    };
 
-    window_margin_width 6 0 4
-
-    remember_window_size  no
-    initial_window_width  1000
-    initial_window_height 800
-  '';
+    # Convert settings to kitty config format
+    toKittyConfig = lib.generators.toKeyValue {
+      mkKeyValue = key: value: let
+        valueStr =
+          if lib.isBool value
+          then
+            if value
+            then "yes"
+            else "no"
+          else toString value;
+      in "${key} ${valueStr}";
+    };
+  in
+    pkgs.writeText "fzfmenu-kitty.conf" ''
+      ${config.programs.kitty.extraConfig}
+      ${toKittyConfig fzfmenuKittyOverrides}
+    '';
 in {
   home.packages = with pkgs; [
     fzf
     inogai.fzfmenu
   ];
 
-  # TODO: use a less hacky config
   home.file.".config/fzfmenu/config.toml".text = ''
     terminal = "${pkgs.kitty}/bin/kitty"
     arguments = [
