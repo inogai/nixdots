@@ -2,18 +2,33 @@
   config,
   pkgs,
   ...
-}: {
-  programs.kitty = {
-    enable = true;
-    settings = {
-      shell = "zsh -ic ${pkgs.nushell}/bin/nu";
-      font_size = 20;
+}: let
+  mergeConfig = confA: confB:
+    confB
+    // {
+      settings = confB.settings // confA.settings;
+      extraConfig = confB.extraConfig + "\n" + confA.extraConfig;
+    };
 
-      # Fonts
+  victorConf = {
+    settings = {
       font_family = "Victor Mono";
       bold_font = "Victor Mono Bold";
       italic_font = "Victor Mono Medium Oblique";
       bold_italic_font = "Victor Mono Bold Oblique";
+    };
+
+    extraConfig = ''
+      modify_font baseline -2
+      modify_font cell_height 0px
+    '';
+  };
+in {
+  programs.kitty = mergeConfig victorConf {
+    enable = true;
+    settings = {
+      shell = "zsh -ic ${pkgs.nushell}/bin/nu";
+      font_size = 20;
 
       # OS Specific
       confirm_os_window_close = 0;
@@ -74,12 +89,7 @@
       symbol_map U+EA60-U+EC1E Symbols Nerd Font
       symbol_map U+276C-U+2771,U+2500-U+259F,U+EE00-U+EE0B Symbols Nerd Font
 
-      # Half-width Kanas
-      symbol_map U+FF66–U+FF9D Noto Sans CJK HK Black
-
-      # Font modifications
-      modify_font baseline -2
-      modify_font cell_height 0px
+      # Underline Adjustments
       modify_font underline_position 130% - 2
       modify_font underline_thickness 2
 
