@@ -44,6 +44,8 @@
     lazygit
     jq
 
+    uv
+
     nix-prefetch-git
 
     jetbrains-mono
