@@ -23,8 +23,17 @@
       modify_font cell_height 0px
     '';
   };
+  jetBrainsConf = {
+    settings = {
+      font_family = "JetBrains Mono";
+    };
+    extraConfig = ''
+      modify_font baseline 0
+      modify_font cell_height 0px
+    '';
+  };
 in {
-  programs.kitty = mergeConfig victorConf {
+  programs.kitty = mergeConfig jetBrainsConf {
     enable = true;
     settings = {
       shell = "zsh -ic ${pkgs.nushell}/bin/nu";

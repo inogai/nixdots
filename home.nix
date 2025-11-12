@@ -46,6 +46,7 @@
 
     nix-prefetch-git
 
+    jetbrains-mono
     victor-mono
     nerd-fonts.symbols-only
 
