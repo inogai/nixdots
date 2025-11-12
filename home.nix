@@ -52,7 +52,7 @@
     victor-mono
     nerd-fonts.symbols-only
 
-    inogai.winterm-rs
+    nur.repos.inogai.winterm-rs
     nvim-inogai
 
     wakatime-cli

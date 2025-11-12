@@ -37,7 +37,7 @@
 in {
   home.packages = with pkgs; [
     fzf
-    inogai.fzfmenu
+    nur.repos.inogai.fzfmenu
   ];
 
   home.file.".config/fzfmenu/config.toml".text = ''

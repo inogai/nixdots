@@ -17,8 +17,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur-packages = {
-      url = "github:inogai/nur-packages";
+    nur = {
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvim-inogai = {
@@ -36,7 +36,7 @@
   outputs = {
     nixpkgs,
     home-manager,
-    nur-packages,
+    nur,
     nvim-inogai,
     nix-yazi-flavors,
     nix-ai-tools,
@@ -44,9 +44,9 @@
   }: let
     system = "aarch64-darwin";
     overlay = final: prev:
-      (nix-yazi-flavors.overlays.default final prev)
+      (nur.overlays.default final prev)
+      // (nix-yazi-flavors.overlays.default final prev)
       // {
-        inogai = nur-packages.packages.${final.system};
         nvim-inogai = nvim-inogai.outputs.packages.${final.system}.nvim-inogai;
         nix-ai-tools = nix-ai-tools.outputs.packages.${final.system};
       };
