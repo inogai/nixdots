@@ -30,10 +30,7 @@
       url = "github:aguirre-matteo/nix-yazi-flavors";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-ai-tools = {
-      url = "github:numtide/nix-ai-tools";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-ai-tools.url = "github:numtide/nix-ai-tools";
   };
 
   outputs = {
