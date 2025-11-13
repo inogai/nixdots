@@ -50,6 +50,7 @@
 
     jetbrains-mono
     victor-mono
+    ibm-plex
     nerd-fonts.symbols-only
 
     nur.repos.inogai.winterm-rs

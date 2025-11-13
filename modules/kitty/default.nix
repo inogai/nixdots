@@ -32,8 +32,15 @@
       modify_font cell_height 0px
     '';
   };
+  ibmPlexMonoConf = {
+    settings.font_family = "IBM Plex Mono";
+    extraConfig = ''
+      modify_font baseline 0
+      modify_font cell_height 0px
+    '';
+  };
 in {
-  programs.kitty = mergeConfig jetBrainsConf {
+  programs.kitty = mergeConfig ibmPlexMonoConf {
     enable = true;
     settings = {
       shell = "zsh -ic ${pkgs.nushell}/bin/nu";
