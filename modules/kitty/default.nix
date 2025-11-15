@@ -59,6 +59,11 @@ in {
       cursor_trail_decay = "0.3 0.6";
       cursor_trail_start_threshold = 0;
 
+      # Background
+      background_opacity = 0.7;
+      background_blur = 16;
+      transparent_background_colors = "#202020@0.7 #181818@0.7";
+
       # Theme: Gruvbox Dark
       selection_foreground = "#ebdbb2";
       selection_background = "#d65d0e";
