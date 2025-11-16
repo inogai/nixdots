@@ -44,7 +44,7 @@ in {
     enable = true;
     settings = {
       shell = "zsh -ic ${pkgs.nushell}/bin/nu";
-      font_size = 20;
+      font_size = 18;
 
       # OS Specific
       confirm_os_window_close = 0;
