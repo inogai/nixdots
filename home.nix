@@ -90,9 +90,6 @@
   #
   #  /etc/profiles/per-user/inogai/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "nvim-inogai";
-  };
 
   programs.home-manager.enable = true;
 }

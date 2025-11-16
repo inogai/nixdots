@@ -8,6 +8,10 @@
     zoxide
   ];
 
+  home.sessionVariables = {
+    EDITOR = "nvim-inogai";
+  };
+
   home.shellAliases = {
     nv = "nvim-inogai";
   };
@@ -23,6 +27,7 @@
       + ''
         $env.LS_COLORS = (vivid generate catppuccin-mocha)
       '';
+    environmentVariables = config.home.sessionVariables;
   };
 
   programs.carapace = {
