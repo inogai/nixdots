@@ -35,7 +35,8 @@
     '';
   };
   ibmPlexMonoConf = {
-    settings.font_family = "IBM Plex Mono";
+    # settings.font_family = "IBM Plex Mono";
+    settings.font_family = "Lilex";
     extraConfig = ''
       modify_font baseline 0
       modify_font cell_height 0px

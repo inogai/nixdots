@@ -57,6 +57,7 @@
     victor-mono
     ibm-plex
     nerd-fonts.symbols-only
+    lilex
 
     nur.repos.inogai.winterm-rs
     nvim-inogai
