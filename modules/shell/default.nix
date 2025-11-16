@@ -8,6 +8,10 @@
     zoxide
   ];
 
+  home.shellAliases = {
+    nv = "nvim-inogai";
+  };
+
   programs.nushell = {
     enable = true;
     settings = {
@@ -19,9 +23,6 @@
       + ''
         $env.LS_COLORS = (vivid generate catppuccin-mocha)
       '';
-    shellAliases = {
-      nv = "nvim-inogai";
-    };
   };
 
   programs.carapace = {
