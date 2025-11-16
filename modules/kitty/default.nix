@@ -3,6 +3,8 @@
   pkgs,
   ...
 }: let
+  pal = config.colorScheme.palette;
+
   mergeConfig = confA: confB:
     confB
     // {
@@ -64,34 +66,34 @@ in {
       background_blur = 16;
       transparent_background_colors = "#202020@0.7 #181818@0.7";
 
-      # Theme: Gruvbox Dark
-      selection_foreground = "#ebdbb2";
-      selection_background = "#d65d0e";
-      background = "#282828";
-      foreground = "#ebdbb2";
-      color0 = "#3c3836";
-      color1 = "#cc241d";
-      color2 = "#98971a";
-      color3 = "#d79921";
-      color4 = "#458588";
-      color5 = "#b16286";
-      color6 = "#689d6a";
-      color7 = "#a89984";
-      color8 = "#928374";
-      color9 = "#fb4934";
-      color10 = "#b8bb26";
-      color11 = "#fabd2f";
-      color12 = "#83a598";
-      color13 = "#d3869b";
-      color14 = "#8ec07c";
-      color15 = "#fbf1c7";
-      cursor = "#bdae93";
-      cursor_text_color = "#665c54";
-      url_color = "#458588";
-      active_tab_foreground = "#eeeeee";
-      active_tab_background = "#d65d0e";
-      inactive_tab_foreground = "#ebdbb2";
-      inactive_tab_background = "#202020";
+      # Theme
+      selection_foreground = "#${pal.base05}";
+      selection_background = "#${pal.base02}";
+      background = "#${pal.base00}";
+      foreground = "#${pal.base05}";
+      color0 = "#${pal.base00}";
+      color1 = "#${pal.base08}";
+      color2 = "#${pal.base0B}";
+      color3 = "#${pal.base0A}";
+      color4 = "#${pal.base0D}";
+      color5 = "#${pal.base0E}";
+      color6 = "#${pal.base0C}";
+      color7 = "#${pal.base05}";
+      color8 = "#${pal.base03}";
+      color9 = "#${pal.base08}";
+      color10 = "#${pal.base0B}";
+      color11 = "#${pal.base0A}";
+      color12 = "#${pal.base0D}";
+      color13 = "#${pal.base0E}";
+      color14 = "#${pal.base0C}";
+      color15 = "#${pal.base07}";
+      cursor = "#${pal.base05}";
+      cursor_text_color = "#${pal.base00}";
+      url_color = "#${pal.base0D}";
+      active_tab_foreground = "#${pal.base05}";
+      active_tab_background = "#${pal.base02}";
+      inactive_tab_foreground = "#${pal.base04}";
+      inactive_tab_background = "#${pal.base01}";
     };
     extraConfig = ''
       # Nerd font overrides

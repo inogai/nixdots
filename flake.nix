@@ -31,6 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-ai-tools.url = "github:numtide/nix-ai-tools";
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = {
@@ -40,6 +41,7 @@
     nvim-inogai,
     nix-yazi-flavors,
     nix-ai-tools,
+    nix-colors,
     ...
   }: let
     system = "aarch64-darwin";
@@ -61,7 +63,9 @@
 
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
-      extraSpecialArgs = {};
+      extraSpecialArgs = {
+        inherit nix-colors;
+      };
     };
   };
 }

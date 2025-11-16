@@ -1,14 +1,11 @@
 {
   config,
   pkgs,
+  nix-colors,
   ...
 }: {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "inogai";
-  home.homeDirectory = "/Users/inogai";
-
   imports = [
+    nix-colors.homeManagerModules.default
     ./modules/aerospace
     ./modules/sketchybar
     ./modules/kitty
@@ -17,6 +14,14 @@
     ./modules/qutebrowser
     ./modules/opencode
   ];
+
+  colorScheme = import ./lib/colorscheme.nix;
+  # colorScheme = nix-colors.colorSchemes.gruvbox-dark-medium;
+
+  # Home Manager needs a bit of information about you and the paths it should
+  # manage.
+  home.username = "inogai";
+  home.homeDirectory = "/Users/inogai";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
