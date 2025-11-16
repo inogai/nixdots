@@ -1,31 +1,27 @@
 {
   config,
   pkgs,
-  nur-packages,
   ...
 }: let
+  palette = config.colorScheme.palette;
+  toJankyBordersColor = color: "0xff${color}"; # 0xff<color>
   bordersPath = ".config/aerospace/borders";
 in {
   home.packages = with pkgs; [
     bash
     aerospace
+    jankyborders
   ];
 
-  home.file.${bordersPath} = {
-    text = ''
-      #!/bin/bash
-      options=(
-        'active_color=0xffff7700'
-        'inactive_color=0xffa89984'
-        'background_color=0x88000000'
-        'style=round'
-        'width=12'
-        'hidpi=off'
-      )
-      # TODO: rely on homebrew borders
-      /opt/homebrew/bin/borders "''${options[@]}"
-    '';
-    executable = true;
+  services.jankyborders = {
+    enable = true;
+    settings = {
+      active_color = toJankyBordersColor palette.base0E;
+      inactive_color = toJankyBordersColor palette.base04;
+      style = "round";
+      hidpi = "off";
+      width = 8;
+    };
   };
 
   home.file.".config/aerospace/aerospace.toml" = {
