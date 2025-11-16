@@ -64,7 +64,7 @@ in {
       # Background
       background_opacity = 0.7;
       background_blur = 16;
-      transparent_background_colors = "#202020@0.7 #181818@0.7";
+      transparent_background_colors = "#202020@0.7 #181818@0.7 #333333@0.7";
 
       # Theme
       selection_foreground = "#${pal.base05}";
