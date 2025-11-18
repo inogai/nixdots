@@ -5,7 +5,6 @@
 }: let
   palette = config.colorScheme.palette;
   toJankyBordersColor = color: "0xff${color}"; # 0xff<color>
-  bordersPath = ".config/aerospace/borders";
 in {
   home.packages = with pkgs; [
     bash
@@ -34,7 +33,6 @@ in {
 
       after-startup-command = [
         'exec-and-forget sbar-inogai',
-        'exec-and-forget ${config.home.homeDirectory}/${bordersPath}'
       ]
 
       exec-on-workspace-change = [
