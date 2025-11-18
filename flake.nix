@@ -26,6 +26,11 @@
       # url = "git+file:///Users/inogai/flakes/nvim-inogai/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sbar-inogai = {
+      url = "github:inogai/sbar-inogai";
+      # url = "git+file:///Users/inogai/flakes/sbar-inogai/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-yazi-flavors = {
       url = "github:aguirre-matteo/nix-yazi-flavors";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,6 +44,7 @@
     home-manager,
     nur,
     nvim-inogai,
+    sbar-inogai,
     nix-yazi-flavors,
     nix-ai-tools,
     nix-colors,
@@ -50,6 +56,7 @@
       // (nix-yazi-flavors.overlays.default final prev)
       // {
         nvim-inogai = nvim-inogai.outputs.packages.${final.system}.nvim-inogai;
+        sbar-inogai = sbar-inogai.outputs.packages.${final.system}.sbar-inogai;
         nix-ai-tools = nix-ai-tools.outputs.packages.${final.system};
       };
     pkgs = nixpkgs.legacyPackages.${system}.extend overlay;

@@ -59,6 +59,7 @@
     ibm-plex
     nerd-fonts.symbols-only
     lilex
+    nerd-fonts.lilex
 
     nur.repos.inogai.winterm-rs
     nvim-inogai

@@ -11,6 +11,7 @@ in {
     bash
     aerospace
     jankyborders
+    sbar-inogai
   ];
 
   services.jankyborders = {
@@ -32,15 +33,14 @@ in {
       after-login-command = []
 
       after-startup-command = [
-        # TODO: remove reliance on external config
-        'exec-and-forget ${pkgs.sketchybar}/bin/sketchybar',
+        'exec-and-forget sbar-inogai',
         'exec-and-forget ${config.home.homeDirectory}/${bordersPath}'
       ]
 
       exec-on-workspace-change = [
         '${pkgs.bash}/bin/bash',
         '-c',
-        '${pkgs.sketchybar}/bin/sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
+        'sbar-inogai --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
       ]
 
       start-at-login = true
@@ -65,7 +65,7 @@ in {
       inner.vertical = 8
       outer.left = 8
       outer.bottom = 8
-      outer.top = 40
+      outer.top = 32
       outer.right = 8
 
       [mode.main.binding]
