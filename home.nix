@@ -13,6 +13,7 @@
     ./modules/fzfmenu
     ./modules/qutebrowser
     ./modules/opencode
+    ./modules/latex
   ];
 
   colorScheme = import ./lib/colorscheme.nix;
@@ -63,6 +64,10 @@
     nvim-inogai
 
     wakatime-cli
+
+    (writeShellScriptBin "md2pdf" ''
+      exec ${./scripts/md2pdf.ts} "$@"
+    '')
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
