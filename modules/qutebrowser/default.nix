@@ -114,7 +114,8 @@ in {
     package = customQutebrowser;
     loadAutoconfig = true;
     searchEngines = {
-      DEFAULT = "https://google.com/search?q={}";
+      DEFAULT = "https://www.perplexity.ai/?q={}";
+      google = "https://google.com/search?q={}";
     };
     settings = {
       url.default_page = "https://www.google.com";
