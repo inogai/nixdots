@@ -115,7 +115,7 @@ in {
     loadAutoconfig = true;
     searchEngines = {
       DEFAULT = "https://www.perplexity.ai/?q={}";
-      google = "https://google.com/search?q={}";
+      g = "https://google.com/search?q={}";
     };
     settings = {
       url.default_page = "https://www.google.com";
