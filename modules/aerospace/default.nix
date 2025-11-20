@@ -63,7 +63,7 @@ in {
       inner.vertical = 8
       outer.left = 8
       outer.bottom = 8
-      outer.top = 32
+      outer.top = 26
       outer.right = 8
 
       [mode.main.binding]

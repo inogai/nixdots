@@ -383,11 +383,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1763488818,
-        "narHash": "sha256-J+rDFVaPVOITTFvCWcN1vEDIQDAZQAgWYxKE2jDpgzk=",
+        "lastModified": 1763572524,
+        "narHash": "sha256-CV6otCF/2i0Wf0w0s/NK3PLje5nZO8IrWQPRUZnipAM=",
         "owner": "inogai",
         "repo": "sbar-inogai",
-        "rev": "45b8e9e16e16713e0ed234e51d5678f522943a7b",
+        "rev": "982a8078adfdf3ad64a967191715dfcda62c3308",
         "type": "github"
       },
       "original": {
