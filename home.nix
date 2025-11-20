@@ -14,6 +14,7 @@
     ./modules/qutebrowser
     ./modules/opencode
     ./modules/latex
+    ./modules/docker
   ];
 
   colorScheme = import ./lib/colorscheme.nix;
