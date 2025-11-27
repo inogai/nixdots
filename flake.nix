@@ -24,7 +24,7 @@
     nvim-inogai = {
       url = "github:inogai/nvim-inogai";
       # url = "git+file:///Users/inogai/flakes/nvim-inogai/";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     sbar-inogai = {
       url = "github:inogai/sbar-inogai";
