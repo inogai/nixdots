@@ -63,9 +63,9 @@ in {
       cursor_trail_start_threshold = 0;
 
       # Background
-      background_opacity = 0.8;
+      background_opacity = 0.93;
       background_blur = 32;
-      transparent_background_colors = "#202020@0.8 #181818@0.8 #333333@0.8";
+      transparent_background_colors = "#202020@0.93 #181818@0.93 #333333@0.93";
 
       # Theme
       selection_foreground = "#${pal.base05}";
