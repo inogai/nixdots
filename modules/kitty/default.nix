@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: let
@@ -47,6 +48,7 @@ in {
     enable = true;
     settings = {
       shell = "zsh -ic ${pkgs.nushell}/bin/nu";
+      # shell = "zsh -ic ${lib.getExe' pkgs.tuios.tuios "tuios"}";
       font_size = 18;
 
       # OS Specific
