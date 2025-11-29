@@ -15,6 +15,7 @@
     ./modules/opencode
     ./modules/latex
     ./modules/docker
+    ./modules/tmux
   ];
 
   colorScheme = import ./lib/colorscheme.nix;
