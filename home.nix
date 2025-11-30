@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   nix-colors,
   ...
@@ -104,6 +105,8 @@
   #
   #  /etc/profiles/per-user/inogai/etc/profile.d/hm-session-vars.sh
   #
+
+  news.display = "silent";
 
   programs.home-manager.enable = true;
 }
