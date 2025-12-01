@@ -198,6 +198,24 @@
         "type": "github"
       }
     },
+    "hm-ricing-mode": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1764340891,
+        "narHash": "sha256-OYR4LtJ7pMJ2hqkcGgeeYJ4wK1PY/Q1T6qCL9zWZUXM=",
+        "owner": "mipmip",
+        "repo": "hm-ricing-mode",
+        "rev": "a17f3a1ec51eef0b8581554cab7e86641327c650",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mipmip",
+        "repo": "hm-ricing-mode",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -221,7 +239,7 @@
     "nix-ai-tools": {
       "inputs": {
         "blueprint": "blueprint",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
@@ -324,16 +342,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1764445028,
-        "narHash": "sha256-ik6H/0Zl+qHYDKTXFPpzuVHSZE+uvVz2XQuQd1IVXzo=",
+        "lastModified": 1742493529,
+        "narHash": "sha256-VJ9BZ52tjJSicVvPD5fJZuM3JmcGt9DQIJTVPLRGL58=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a09378c0108815dbf3961a0e085936f4146ec415",
+        "rev": "750fef2a6310c764911e49a04c88d7c3c6d88585",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -370,6 +387,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1764445028,
+        "narHash": "sha256-ik6H/0Zl+qHYDKTXFPpzuVHSZE+uvVz2XQuQd1IVXzo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a09378c0108815dbf3961a0e085936f4146ec415",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1764138170,
         "narHash": "sha256-2bCmfCUZyi2yj9FFXYKwsDiaZmizN75cLhI/eWmf3tk=",
         "owner": "nixos",
@@ -384,7 +417,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1763934636,
         "narHash": "sha256-9glbI7f1uU+yzQCq5LwLgdZqx6svOhZWkd4JRY265fc=",
@@ -424,7 +457,7 @@
     "nvim-inogai": {
       "inputs": {
         "nixCats": "nixCats",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "plugins-indent-rainbowline.nvim": "plugins-indent-rainbowline.nvim",
         "plugins-moegi.nvim": "plugins-moegi.nvim",
         "plugins-opencode.nvim": "plugins-opencode.nvim"
@@ -495,11 +528,12 @@
     },
     "root": {
       "inputs": {
+        "hm-ricing-mode": "hm-ricing-mode",
         "home-manager": "home-manager",
         "nix-ai-tools": "nix-ai-tools",
         "nix-colors": "nix-colors",
         "nix-yazi-flavors": "nix-yazi-flavors",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nur": "nur",
         "nvim-inogai": "nvim-inogai",
         "sbar-inogai": "sbar-inogai",

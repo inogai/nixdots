@@ -52,8 +52,11 @@
 
     lazygit
     jq
+    yq-go
+    util-linux
 
     uv
+    deno
 
     nix-prefetch-git
 
@@ -109,4 +112,5 @@
   news.display = "silent";
 
   programs.home-manager.enable = true;
+  programs.hm-ricing-mode.enable = true;
 }

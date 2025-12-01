@@ -1,0 +1,38 @@
+terminal = "kitty"
+arguments = [
+  '--single-instance',
+  '--instance-group',
+  'fzfmenu',
+  '--title',
+  'fzfmenu',
+  '-c',
+  '~/.config/fzfmenu/kitty.conf'
+]
+
+fzf_arguments = [
+  "--prompt=❯",
+  '"--gutter= "',
+  "--color=bg:-1,bg+:-1",
+  "--color=hl:#d8a657,hl+:#d8a657:reverse",
+  "--color=fg:#ebdbb2,fg+:#ebdbb2:reverse",
+  "--color=header:#83a598",
+  "--color=spinner:#8ec07c",
+  "--color=marker:#8ec07c,header:#83a598",
+  "--color=prompt:#89b482,pointer:#83a598",
+  "--color=info:#a89984,separator:#a89984",
+  "--color=query:#ebdbb2:regular",
+]
+
+[[plugins]]
+name = "app_launcher"
+description = "Launch applications based on your desktop environment."
+prefix = ""
+picker = "fd -d2 -L '\\.app$' /Applications $HOME/Applications /System/Applications -x echo {/}"
+runner = "/usr/bin/open -a '{}'"
+
+[[plugins]]
+name = "focus"
+description = "Focus an aerospace window"
+prefix = "fo "
+picker = "aerospace list-windows --all"
+runner = "~/.config/fzfmenu/focus-window.ts '{}'"
