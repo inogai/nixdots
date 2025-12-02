@@ -8,6 +8,7 @@
 in {
   home.packages = with pkgs; [
     sbar-inogai
+    sketchybar-app-font
   ];
 
   services.jankyborders = {
@@ -135,4 +136,3 @@ in {
     };
   };
 }
-
