@@ -3,10 +3,12 @@
 
   nixConfig = {
     extra-substituters = [
-      "https://inogai.cachix.org/"
+      "https://inogai.cachix.org"
+      "https://numtide.cachix.org"
     ];
     extra-trusted-public-keys = [
       "inogai.cachix.org-1:gJVZ8+i50F4/I9/TBnkpBlAGzqzpJQdtK/iQATuWY60="
+      "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
     ];
   };
 
