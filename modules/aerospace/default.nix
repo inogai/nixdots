@@ -24,7 +24,8 @@ in {
 
   programs.aerospace = {
     enable = true;
-    userSettings = {
+    launchd.enable = true;
+    settings = {
       after-login-command = [];
 
       after-startup-command = [
@@ -37,7 +38,7 @@ in {
         "sbar-inogai --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE"
       ];
 
-      start-at-login = true;
+      start-at-login = true; # NOTE: will be overridden by `launchd.enable`
       enable-normalization-flatten-containers = true;
       enable-normalization-opposite-orientation-for-nested-containers = true;
       accordion-padding = 30;
