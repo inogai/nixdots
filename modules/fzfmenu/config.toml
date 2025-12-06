@@ -6,7 +6,7 @@ arguments = [
   '--title',
   'fzfmenu',
   '-c',
-  '~/.config/fzfmenu/kitty.conf'
+  '/Users/inogai/.config/fzfmenu/kitty.conf'
 ]
 
 fzf_arguments = [
