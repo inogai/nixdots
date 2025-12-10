@@ -72,6 +72,10 @@
 
     wakatime-cli
 
+    inter
+
+    prismlauncher
+
     (writeShellScriptBin "md2pdf" ''
       exec ${./scripts/md2pdf.ts} "$@"
     '')
