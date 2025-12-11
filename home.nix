@@ -16,7 +16,6 @@
     ./modules/latex
     ./modules/docker
     ./modules/tmux
-    ./modules/tuios
   ];
 
   colorScheme = import ./lib/colorscheme.nix;

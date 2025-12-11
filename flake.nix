@@ -37,10 +37,6 @@
       url = "github:aguirre-matteo/nix-yazi-flavors";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    tuios = {
-      url = "github:Gaurav-Gosain/tuios";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-ai-tools.url = "github:numtide/nix-ai-tools";
     nix-colors.url = "github:misterio77/nix-colors";
     hm-ricing-mode.url = "github:mipmip/hm-ricing-mode";
@@ -56,7 +52,6 @@
     nix-yazi-flavors,
     nix-ai-tools,
     nix-colors,
-    tuios,
     ...
   }: let
     system = "aarch64-darwin";
@@ -67,9 +62,6 @@
         nvim-inogai = nvim-inogai.outputs.packages.${final.system}.nvim-inogai;
         sbar-inogai = sbar-inogai.outputs.packages.${final.system}.sbar-inogai;
         nix-ai-tools = nix-ai-tools.outputs.packages.${final.system};
-        tuios = {
-          tuios = tuios.outputs.packages.${final.system}.tuios;
-        };
       };
     pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
   in {
