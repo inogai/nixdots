@@ -44,7 +44,7 @@
     '';
   };
 in {
-  programs.kitty = mergeConfig ibmPlexMonoConf {
+  programs.kitty = mergeConfig jetBrainsConf {
     enable = true;
     settings = {
       shell = "zsh -ic ${pkgs.nushell}/bin/nu";
