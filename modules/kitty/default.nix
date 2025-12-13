@@ -115,6 +115,9 @@ in {
       symbol_map U+EA60-U+EC1E Symbols Nerd Font
       symbol_map U+276C-U+2771,U+2500-U+259F,U+EE00-U+EE0B Symbols Nerd Font
 
+      allow_remote_control    yes
+      listen_on               unix:/tmp/kitty.sock
+
       # Underline Adjustments
       modify_font underline_position 130% - 2
       modify_font underline_thickness 2
