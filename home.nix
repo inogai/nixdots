@@ -10,6 +10,7 @@
     ./modules/aerospace
     ./modules/kitty
     ./modules/shell
+    ./modules/yazi
     ./modules/fzfmenu
     ./modules/qutebrowser
     ./modules/opencode
