@@ -13,7 +13,7 @@
       mgr = {
         show_hidden = true;
         sort_by = "alphabetical";
-        linemode = "perm_time";
+        linemode = "custom";
       };
     };
 
@@ -70,5 +70,10 @@
       dark = "catppuccin-mocha";
       light = "catppuccin-latte";
     };
+  };
+
+  programs.hm-ricing-mode.apps.yazi = {
+    dest_dir = ".config/yazi";
+    type = "backport";
   };
 }

@@ -60,30 +60,74 @@ local function format_lateral_time(timestamp)
 		return "-"
 	end
 
+	if timestamp == 1 then
+		return "~"
+	end
+
 	local now = os.time()
 	local diff = now - timestamp
 
 	if diff < 60 then
-		return "just now"
-	elseif diff < 3600 then
-		local mins = math.floor(diff / 60)
-		return mins .. " min" .. (mins > 1 and "s" or "") .. " ago"
+		return "<1m"
+	end
+
+	-- Compute number and unit
+	local number, unit
+	if diff < 3600 then
+		number = math.floor(diff / 60)
+		unit = "m"
 	elseif diff < 86400 then
-		local hours = math.floor(diff / 3600)
-		return hours .. " hr" .. (hours > 1 and "s" or "") .. " ago"
+		number = math.floor(diff / 3600)
+		unit = "h"
 	elseif diff < 2592000 then
-		local days = math.floor(diff / 86400)
-		return days .. " day" .. (days > 1 and "s" or "") .. " ago"
+		number = math.floor(diff / 86400)
+		unit = "d"
 	elseif diff < 31536000 then
-		local months = math.floor(diff / 2592000)
-		return months .. " mo" .. (months > 1 and "s" or "") .. " ago"
+		number = math.floor(diff / 2592000)
+		unit = "M"
 	else
-		local years = math.floor(diff / 31536000)
-		return years .. " yr" .. (years > 1 and "s" or "") .. " ago"
+		number = math.floor(diff / 31536000)
+		unit = "y"
+	end
+
+	-- Format with space padding if number < 10
+	if number < 10 then
+		return string.format(" %d%s", number, unit)
+	else
+		return string.format("%d%s", number, unit)
 	end
 end
 
-function Linemode:perm_time()
+-- Helper function to format file size with 1 decimal place and proper unit scaling
+local function format_file_size(size)
+	-- Compute number and unit
+	local number, unit
+	if size <= 100 then
+		number = size
+		unit = "  B"
+	elseif size <= 100 * 1024 then
+		number = size / 1024
+		unit = "KiB"
+	elseif size <= 100 * 1024 * 1024 then
+		number = size / (1024 * 1024)
+		unit = "MiB"
+	elseif size <= 100 * 1024 * 1024 * 1024 then
+		number = size / (1024 * 1024 * 1024)
+		unit = "GiB"
+	else
+		number = size / (1024 * 1024 * 1024 * 1024)
+		unit = "TiB"
+	end
+
+	-- Format with space padding if number < 10
+	if number < 10 then
+		return string.format(" %.1f %s", number, unit)
+	else
+		return string.format("%.1f %s", number, unit)
+	end
+end
+
+function Linemode:custom()
 	-- Get permissions using correct method
 	local perm_str = self._file.cha:perm()
 	local octal = perm_to_octal(perm_str)
@@ -92,7 +136,13 @@ function Linemode:perm_time()
 	local time = math.floor(self._file.cha.mtime or 0)
 	local time_str = format_lateral_time(time)
 
-	-- Return combined string (not UI components)
-	return string.format("%-4s %-12s", octal, time_str)
-end
+	-- Get file sizfe
+	local size_str = ""
 
+	if not self._file.cha.is_dir then
+		local size = self._file:size() or 0
+		size_str = format_file_size(size)
+	end
+
+	return string.format("%4s %4s %9s", octal, time_str, size_str)
+end
