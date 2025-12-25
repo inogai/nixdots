@@ -5,7 +5,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-    fzf
     nur.repos.inogai.fzfmenu
   ];
 
