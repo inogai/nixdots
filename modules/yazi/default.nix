@@ -11,9 +11,9 @@
 
     settings = {
       mgr = {
-        show_hidden = true;
-        sort_by = "alphabetical";
-        linemode = "custom";
+        sort_by = "mtime";
+        sort_reverse = true;
+        linemode = "mtime";
       };
     };
 
