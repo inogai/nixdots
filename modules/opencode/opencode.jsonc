@@ -9,12 +9,12 @@
       },
       "models": {
         "glm-4.5": {
-          "name" : "GLM 4.5"
+          "name": "GLM 4.5"
         },
         "kimi-k2-250905": {
-          "name" : "Kimi K2"
+          "name": "Kimi K2"
         }
       }
-    }
-  }
+    },
+  },
 }

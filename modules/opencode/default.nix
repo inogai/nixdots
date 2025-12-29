@@ -8,7 +8,14 @@
     nix-ai-tools.opencode
   ];
 
-  home.file.".config/opencode/opencode.jsonc".source = ./opencode.jsonc;
+  xdg.configFile."opencode" = {
+    source = ./.;
+    recursive = true;
+  };
 
-  home.file.".config/opencode/command/commit.md".source = ./commit.md;
+  programs.hm-ricing-mode.apps.opencode = {
+    dest_dir = ".config/opencode";
+    source_dir = "$HOME/.config/home-manager/modules/opencode";
+    type = "symlink";
+  };
 }
