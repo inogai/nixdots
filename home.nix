@@ -21,6 +21,7 @@
     ./modules/cli-utils
     ./modules/tmux
     ./modules/tui-apps
+    ./modules/zellij
   ];
 
   colorScheme = import ./lib/colorscheme.nix;
