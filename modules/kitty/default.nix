@@ -47,14 +47,14 @@ in {
   programs.kitty = mergeConfig jetBrainsConf {
     enable = true;
     settings = {
-      shell = "zsh -ic ${pkgs.nushell}/bin/nu";
-      # shell = "zsh -ic ${lib.getExe' pkgs.tuios.tuios "tuios"}";
-      font_size = 18;
+      shell = "zsh -ic zellij";
+      font_size = 16;
 
       # OS Specific
       confirm_os_window_close = 0;
       hide_window_decorations = "titlebar-only";
       macos_option_as_alt = "yes";
+      clear_all_shortcuts = "yes";
 
       # Remote Control
       allow_remote_control = "yes";
@@ -126,9 +126,16 @@ in {
       mouse_map left click ungrabbed mouse_handle_click selection link prompt
       mouse_map cmd+left release grabbed,ungrabbed mouse_handle_click link
 
+      map cmd+v paste_from_clipboard
+      map cmd+equal change_font_size current +1.0
+      map cmd+minus change_font_size current -1.0
       map shift+page_up scroll_page_up
       map shift+page_down scroll_page_down
-      map shift+space combine : send_key ctrl+x : send_key space
     '';
+  };
+
+  programs.hm-ricing-mode.apps.kitty = {
+    dest_dir = ".config/kitty";
+    type = "backport";
   };
 }
