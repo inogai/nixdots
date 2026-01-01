@@ -71,9 +71,4 @@
       light = "catppuccin-latte";
     };
   };
-
-  programs.hm-ricing-mode.apps.yazi = {
-    dest_dir = ".config/yazi";
-    type = "backport";
-  };
 }
