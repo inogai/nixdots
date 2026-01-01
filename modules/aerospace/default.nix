@@ -52,10 +52,10 @@ in {
       gaps = {
         inner.horizontal = 12;
         inner.vertical = 8;
-        outer.left = 8;
-        outer.bottom = 8;
-        outer.top = 26;
-        outer.right = 8;
+        outer.left = 4;
+        outer.bottom = 4;
+        outer.top = 24; # 20 (sbar) + 4 (borders)
+        outer.right = 4;
       };
 
       mode = {
