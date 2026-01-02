@@ -5,6 +5,8 @@
 }: let
   palette = config.colorScheme.palette;
   toJankyBordersColor = color: "0xff${color}"; # 0xff<color>
+
+  modeFn = f: ["mode ${f}" "exec-and-forget noti -t 'Aerospace' 'Mode ${f}'"];
 in {
   home.packages = with pkgs; [
     sbar-inogai
@@ -67,10 +69,7 @@ in {
             alt-j = "focus down";
             alt-k = "focus up";
             alt-l = "focus right";
-            "alt-shift-h" = "move left";
-            "alt-shift-j" = "move down";
-            "alt-shift-k" = "move up";
-            "alt-shift-l" = "move right";
+            alt-f = "layout floating tiling";
             alt-minus = "resize smart -50";
             alt-equal = "resize smart +50";
             "alt-shift-minus" = "balance-sizes";
@@ -98,17 +97,25 @@ in {
             alt-q = "exec-and-forget kitty -1 -d ~/";
             alt-x = "close";
             alt-d = "exec-and-forget fzfmenu";
-            alt-m = "reload-config";
-            "alt-semicolon" = ["mode arrangement"];
+            alt-semicolon = modeFn "arrangement";
           };
         };
         arrangement = {
           binding = {
-            esc = ["reload-config" "mode main"];
-            h = "join-with left";
-            j = "join-with down";
-            k = "join-with up";
-            l = "join-with right";
+            esc = modeFn "main";
+            h = "move left";
+            j = "move down";
+            k = "move up";
+            l = "move right";
+            alt-h = "join-with left";
+            alt-j = "join-with down";
+            alt-k = "join-with up";
+            alt-l = "join-with right";
+          };
+        };
+        service = {
+          binding = {
+            esc = ["reload-config"] ++ modeFn "main";
           };
         };
       };

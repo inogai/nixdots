@@ -40,6 +40,8 @@ in {
 
     wakatime-cli
 
+    (writeShellScriptBin "noti" (builtins.readFile ./noti))
+
     (writeShellScriptBin "md2pdf" ''
       exec ${./md2pdf.ts} "$@"
     '')
