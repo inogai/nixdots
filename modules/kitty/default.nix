@@ -47,7 +47,7 @@ in {
   programs.kitty = mergeConfig jetBrainsConf {
     enable = true;
     settings = {
-      shell = "zsh -ic zellij";
+      shell = "zsh -ic 'zellij -l welcome'";
       font_size = 16;
 
       # OS Specific
@@ -126,9 +126,10 @@ in {
       mouse_map left click ungrabbed mouse_handle_click selection link prompt
       mouse_map cmd+left release grabbed,ungrabbed mouse_handle_click link
 
+      map cmd+c copy_to_clipboard
       map cmd+v paste_from_clipboard
-      map cmd+equal change_font_size current +1.0
-      map cmd+minus change_font_size current -1.0
+      map cmd+shift+equal change_font_size current +1.0
+      map cmd+shift+minus change_font_size current -1.0
       map shift+page_up scroll_page_up
       map shift+page_down scroll_page_down
     '';
