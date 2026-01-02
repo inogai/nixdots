@@ -14,6 +14,7 @@
 
   home.shellAliases = {
     nv = "nvim-inogai";
+    zj = "zellij";
   };
 
   programs.nushell = {
@@ -28,6 +29,7 @@
         $env.LS_COLORS = (vivid generate catppuccin-mocha)
       '';
     environmentVariables = config.home.sessionVariables;
+    shellAliases = config.home.shellAliases;
   };
 
   programs.carapace = {
