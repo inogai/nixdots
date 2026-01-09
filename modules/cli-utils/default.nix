@@ -33,6 +33,8 @@ in {
     yq-go
     util-linux
 
+    pandoc
+
     uv
     deno
 
