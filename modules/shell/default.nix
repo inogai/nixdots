@@ -5,7 +5,6 @@
 }: {
   home.packages = with pkgs; [
     vivid
-    zoxide
   ];
 
   home.sessionVariables = {
@@ -35,13 +34,19 @@
       show_banner = false;
       completions.algorithm = "fuzzy";
     };
-    extraConfig =
-      builtins.readFile (pkgs.runCommand "zoxide-init" {} "${pkgs.zoxide}/bin/zoxide init nushell > $out")
-      + ''
-        $env.LS_COLORS = (vivid generate catppuccin-mocha)
-      '';
+    extraConfig = ''
+      $env.LS_COLORS = (vivid generate catppuccin-mocha)
+    '';
     environmentVariables = config.home.sessionVariables;
     shellAliases = config.home.shellAliases;
+  };
+
+  programs.atuin = {
+    enable = true;
+    enableNushellIntegration = true;
+    settings = {
+      enter_accept = false;
+    };
   };
 
   programs.carapace = {
@@ -49,8 +54,16 @@
     enableNushellIntegration = true;
   };
 
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableNushellIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   programs.starship = {
     enable = true;
+    enableNushellIntegration = true;
     settings = {
       add_newline = false;
       character = {
@@ -60,18 +73,8 @@
     };
   };
 
-  programs = {
-    direnv = {
-      enable = true;
-      enableBashIntegration = true;
-      enableNushellIntegration = true;
-      nix-direnv.enable = true;
-    };
-  };
-
-  programs.atuin = {
+  programs.zoxide = {
     enable = true;
-    settings = {
-    };
+    enableNushellIntegration = true;
   };
 }
