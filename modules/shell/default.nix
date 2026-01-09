@@ -17,6 +17,18 @@
     zj = "zellij";
   };
 
+  programs.zsh = {
+    enable = true;
+    # Drop user to nushell if interactive
+    # or `interactiveShellInit` for NixOS/nix-darwin
+    initContent = ''
+      if ! [ "$TERM" = "dumb" ]; then
+        zellij -l welcome
+        exec nu
+      fi
+    '';
+  };
+
   programs.nushell = {
     enable = true;
     settings = {
@@ -49,10 +61,6 @@
   };
 
   programs = {
-    bash = {
-      enable = true;
-    };
-
     direnv = {
       enable = true;
       enableBashIntegration = true;

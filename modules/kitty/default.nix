@@ -47,7 +47,7 @@ in {
   programs.kitty = mergeConfig jetBrainsConf {
     enable = true;
     settings = {
-      shell = "zsh -ic 'zellij -l welcome'";
+      shell = "zsh";
       font_size = 16;
 
       # OS Specific
