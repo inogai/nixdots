@@ -7,13 +7,11 @@
     enable = true;
     enableNushellIntegration = true;
 
-    initLua = ./init.lua;
-
     settings = {
       mgr = {
         sort_by = "mtime";
         sort_reverse = true;
-        linemode = "mtime";
+        linemode = "none";
       };
     };
 
