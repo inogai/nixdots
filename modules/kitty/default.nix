@@ -47,7 +47,7 @@ in {
   programs.kitty = mergeConfig jetBrainsConf {
     enable = true;
     settings = {
-      shell = "zsh";
+      shell = "shell-session";
       font_size = 16;
 
       # OS Specific

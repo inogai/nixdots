@@ -5,6 +5,9 @@
 }: {
   home.packages = with pkgs; [
     vivid
+    (pkgs.writeShellScriptBin "shell-session" ''
+      zsh -ic "zellij -l welcome; exec nu"
+    '')
   ];
 
   home.sessionVariables = {
@@ -18,14 +21,6 @@
 
   programs.zsh = {
     enable = true;
-    # Drop user to nushell if interactive
-    # or `interactiveShellInit` for NixOS/nix-darwin
-    initContent = ''
-      if ! [ "$TERM" = "dumb" ]; then
-        zellij -l welcome
-        exec nu
-      fi
-    '';
   };
 
   programs.nushell = {
