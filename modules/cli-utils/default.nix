@@ -29,9 +29,11 @@ in {
     github-cli
     trash-cli
 
+    coreutils
     jq
     yq-go
     util-linux
+    socat
 
     pandoc
 
