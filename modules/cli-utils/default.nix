@@ -21,7 +21,6 @@ in {
   home.packages = with pkgs; [
     git
     gnupg
-    # openssh # use system ssh
     wget
     curl
     fd
@@ -55,4 +54,15 @@ in {
       exec ${pkgs.fzf}/bin/fzf "$@"
     '')
   ];
+
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    matchBlocks."*" = {
+      forwardAgent = true;
+    };
+  };
+  services.ssh-agent = {
+    enable = true;
+  };
 }
