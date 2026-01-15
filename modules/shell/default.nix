@@ -5,9 +5,6 @@
 }: {
   home.packages = with pkgs; [
     vivid
-    (pkgs.writeShellScriptBin "shell-session" ''
-      zsh -ic "zellij -l welcome; exec nu"
-    '')
   ];
 
   home.sessionVariables = {
