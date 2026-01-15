@@ -22,6 +22,7 @@
     ./modules/tmux
     ./modules/tui-apps
     ./modules/zellij
+    ./modules/podman
   ];
 
   colorScheme = import ./lib/colorscheme.nix;
