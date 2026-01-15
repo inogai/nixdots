@@ -96,7 +96,7 @@ in {
             "alt-shift-s" = ["move-node-to-workspace S" "workspace S"];
             alt-q = "exec-and-forget kitty -1 -d ~/";
             alt-x = "close";
-            alt-d = "exec-and-forget fzfmenu";
+            alt-d = "exec-and-forget open -a Raycast";
             alt-semicolon = modeFn "arrangement";
           };
         };
