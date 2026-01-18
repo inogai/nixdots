@@ -25,8 +25,9 @@
     ./modules/podman
   ];
 
-  colorScheme = import ./lib/colorscheme.nix;
+  # colorScheme = import ./lib/colorscheme.nix;
   # colorScheme = nix-colors.colorSchemes.gruvbox-dark-medium;
+  colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
 
   home.username = "inogai";
   home.homeDirectory = "/Users/inogai";

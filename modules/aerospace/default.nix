@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: let
@@ -12,6 +13,11 @@ in {
     sbar-inogai
     sketchybar-app-font
   ];
+
+  xdg.configFile."sbar-inogai/config.lua".text = ''
+    return ${
+      lib.generators.toLua {} (builtins.mapAttrs (key: value: "0xff${value}") palette)
+    }'';
 
   services.jankyborders = {
     enable = true;
