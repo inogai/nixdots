@@ -19,7 +19,7 @@
     lib.foldl _mergeTwo {} configs;
 in {
   programs.kitty = mergeConfigs [
-    fonts.jetbrains
+    fonts.plex
     fonts.nerdFontOverrides
     colorscheme
     {
@@ -53,13 +53,16 @@ in {
         modify_font underline_position 130% - 2
         modify_font underline_thickness 2
 
+        # More Condensed Lines
+        modify_font cell_height -1px
+
         # Input Handling
         mouse_map left click ungrabbed mouse_handle_click selection link prompt
         mouse_map cmd+left release grabbed,ungrabbed mouse_handle_click link
 
         map cmd+c copy_to_clipboard
         map cmd+v paste_from_clipboard
-        map cmd+r reload_config
+        map cmd+r load_config_file
         map cmd+shift+equal change_font_size current +1.0
         map cmd+shift+minus change_font_size current -1.0
         map shift+page_up scroll_page_up
