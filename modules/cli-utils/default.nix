@@ -59,10 +59,13 @@ in {
     enable = true;
     enableDefaultConfig = false;
     matchBlocks."*" = {
+      # test ssh-agent with `ssh-add -l` after unlocking
+      addKeysToAgent = "12h";
       forwardAgent = true;
     };
   };
   services.ssh-agent = {
     enable = true;
+    defaultMaximumIdentityLifetime = 3600;
   };
 }
