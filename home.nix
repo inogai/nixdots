@@ -15,7 +15,6 @@
     ./modules/qutebrowser
     ./modules/opencode
     ./modules/latex
-    ./modules/docker
     ./modules/fonts
     ./modules/gui-apps
     ./modules/cli-utils
