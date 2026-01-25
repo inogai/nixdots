@@ -7,6 +7,10 @@
   palette = config.colorScheme.palette;
   toJankyBordersColor = color: "0xff${color}"; # 0xff<color>
 
+  # fn: a -> { name = string; value = any; }
+  mapToAttrs = list: fn:
+    builtins.listToAttrs (builtins.map fn
+      list);
   modeFn = f: ["mode ${f}" "exec-and-forget noti -t 'Aerospace' 'Mode ${f}'"];
 in {
   home.packages = with pkgs; [
@@ -68,58 +72,45 @@ in {
 
       mode = {
         "main" = {
-          binding = {
-            alt-slash = "layout tiles accordion";
-            alt-comma = "layout horizontal vertical";
-            alt-h = "focus left";
-            alt-j = "focus down";
-            alt-k = "focus up";
-            alt-l = "focus right";
-            alt-f = "layout floating tiling";
-            alt-minus = "resize smart -50";
-            alt-equal = "resize smart +50";
-            "alt-shift-minus" = "balance-sizes";
-            "alt-shift-equal" = "balance-sizes";
-            alt-backtick = "focus-monitor --wrap-around next";
-            "alt-shift-backtick" = [
-              "move-node-to-monitor --wrap-around next"
-              "focus-monitor --wrap-around next"
-            ];
-            alt-tab = "exec-and-forget fzfmenu -q=\"fo \"";
-            alt-1 = "workspace 1";
-            alt-2 = "workspace 2";
-            alt-3 = "workspace 3";
-            alt-w = "workspace W";
-            alt-e = "workspace E";
-            alt-a = "workspace A";
-            alt-s = "workspace S";
-            "alt-shift-1" = ["move-node-to-workspace 1" "workspace 1"];
-            "alt-shift-2" = ["move-node-to-workspace 2" "workspace 2"];
-            "alt-shift-3" = ["move-node-to-workspace 3" "workspace 3"];
-            "alt-shift-w" = ["move-node-to-workspace W" "workspace W"];
-            "alt-shift-e" = ["move-node-to-workspace E" "workspace E"];
-            "alt-shift-a" = ["move-node-to-workspace A" "workspace A"];
-            "alt-shift-s" = ["move-node-to-workspace S" "workspace S"];
-            alt-q = "exec-and-forget kitty -1 -d ~/";
-            alt-c = "exec-and-forget ray color-picker pick-color";
-            alt-b = "exec-and-forget ray bitwarden search";
-            alt-x = "close";
-            alt-d = "exec-and-forget open -a Raycast";
-            alt-semicolon = modeFn "arrangement";
-          };
-        };
-        arrangement = {
-          binding = {
-            esc = modeFn "main";
-            h = "move left";
-            j = "move down";
-            k = "move up";
-            l = "move right";
-            alt-h = "join-with left";
-            alt-j = "join-with down";
-            alt-k = "join-with up";
-            alt-l = "join-with right";
-          };
+          binding =
+            {
+              alt-slash = "layout tiles accordion";
+              alt-comma = "layout horizontal vertical";
+              alt-d = "exec-and-forget open -a Raycast";
+              alt-f = "layout floating tiling";
+              alt-h = "resize smart -50";
+              alt-j = "focus right";
+              alt-k = "focus left";
+              alt-l = "resize smart +50";
+              alt-shift-h = "move left";
+              alt-shift-j = "move down";
+              alt-shift-k = "move up";
+              alt-shift-l = "move right";
+              alt-semicolon = "balance-sizes";
+              alt-enter = "exec-and-forget kitty -1 -d ~/";
+              alt-esc = "focus-monitor --wrap-around next";
+              alt-shift-esc = [
+                "move-node-to-monitor --wrap-around next"
+                "focus-monitor --wrap-around next"
+              ];
+              alt-c = "exec-and-forget ray color-picker pick-color";
+              alt-b = "exec-and-forget ray bitwarden search";
+              alt-x = "close";
+            }
+            // mapToAttrs ["q" "w" "e" "r" "t" "y" "u" "i" "o" "p"] (k: {
+              name = "alt-${k}";
+              value = [
+                "workspace ${k}"
+                "exec-and-forget noti -t 'Aerospace' 'Switched to workspace ${k}'"
+              ];
+            })
+            // mapToAttrs ["q" "w" "e" "r" "t" "y" "u" "i" "o" "p"] (k: {
+              name = "alt-shift-${k}";
+              value = [
+                "move-node-to-workspace ${k}"
+                "exec-and-forget noti -t 'Aerospace' 'Moved window to workspace ${k}'"
+              ];
+            });
         };
         service = {
           binding = {
@@ -128,15 +119,10 @@ in {
         };
       };
 
-      workspace-to-monitor-force-assignment = {
-        "1" = 1;
-        "2" = [2 1];
-        "3" = [2 1];
-        W = 1;
-        E = [2 1];
-        A = 1;
-        S = [2 1];
-      };
+      workspace-to-monitor-force-assignment =
+        {}
+        // lib.genAttrs ["q" "w" "e" "r" "t"] (_: [1])
+        // lib.genAttrs ["y" "u" "i" "o" "p"] (_: [2 1]);
 
       "on-window-detected" = [
         {
