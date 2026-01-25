@@ -2,7 +2,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  shellPopup = cmd: "shell -- zellij run --floating -- ${cmd}";
+in {
   programs.yazi = {
     enable = true;
     enableNushellIntegration = true;
@@ -51,6 +53,21 @@
             on = ["R"];
             run = "rename --hovered --empty=stem --cursor=start";
             desc = "Rename File";
+          }
+          {
+            on = ["n" "r"];
+            run = shellPopup "nix-store -q --roots $*";
+            desc = "Show Nix Roots of Selected Files";
+          }
+          {
+            on = ["n" "d"];
+            run = shellPopup "nix-store -q --referrers-closure $*";
+            desc = "Show Nix References of Selected Files";
+          }
+          {
+            on = ["n" "D"];
+            run = shellPopup "nix-store -q --referrers $*";
+            desc = "Show Nix Reference Closure of Selected Files";
           }
         ];
       };
