@@ -78,10 +78,12 @@ in {
               alt-comma = "layout horizontal vertical";
               alt-d = "exec-and-forget open -a Raycast";
               alt-f = "layout floating tiling";
-              alt-h = "resize smart -50";
-              alt-j = "focus right";
-              alt-k = "focus left";
-              alt-l = "resize smart +50";
+              alt-g = "resize smart -50";
+              alt-shift-g = "resize smart +50";
+              alt-h = "focus left";
+              alt-j = "focus down";
+              alt-k = "focus up";
+              alt-l = "focus right";
               alt-shift-h = "move left";
               alt-shift-j = "move down";
               alt-shift-k = "move up";
