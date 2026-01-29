@@ -19,14 +19,14 @@
     lib.foldl _mergeTwo {} configs;
 in {
   programs.kitty = mergeConfigs [
-    fonts.plex
+    fonts.victor
     fonts.nerdFontOverrides
     colorscheme
     {
       enable = true;
       settings = {
         shell = "zsh -ic 'zellij -l welcome'";
-        font_size = 16;
+        font_size = 20;
 
         # OS Specific
         confirm_os_window_close = 0;
