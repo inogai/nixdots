@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   home.packages = with pkgs; [
@@ -62,6 +63,14 @@
         success_symbol = "[➜](bold green)";
         error_symbol = "[➜](bold red)";
       };
+      time.disabled = false;
+      format = lib.concatStringsSep "" [
+        "$all"
+        "$time"
+        "$line_break"
+        "$jobs"
+        "$character"
+      ];
     };
   };
 
