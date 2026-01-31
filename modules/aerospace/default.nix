@@ -112,6 +112,7 @@ in {
               name = "alt-shift-${k}";
               value = [
                 "move-node-to-workspace ${k}"
+                "workspace ${k}"
                 "exec-and-forget noti -t 'Aerospace' 'Moved window to workspace ${k}'"
               ];
             });
