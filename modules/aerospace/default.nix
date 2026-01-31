@@ -12,6 +12,7 @@
     builtins.listToAttrs (builtins.map fn
       list);
   modeFn = f: ["mode ${f}" "exec-and-forget noti -t 'Aerospace' 'Mode ${f}'"];
+  exec = f: "exec-and-forget ${f}";
 in {
   home.packages = with pkgs; [
     sbar-inogai
@@ -76,7 +77,7 @@ in {
             {
               alt-slash = "layout tiles accordion";
               alt-comma = "layout horizontal vertical";
-              alt-d = "exec-and-forget open -a Raycast";
+              alt-d = exec "open -a Raycast";
               alt-f = "layout floating tiling";
               alt-g = "resize smart -50";
               alt-shift-g = "resize smart +50";
@@ -89,14 +90,15 @@ in {
               alt-shift-k = "move up";
               alt-shift-l = "move right";
               alt-semicolon = "balance-sizes";
-              alt-enter = "exec-and-forget kitty -1 -d ~/";
+              alt-enter = exec "kitty -1 -d ~/";
               alt-esc = "focus-monitor --wrap-around next";
               alt-shift-esc = [
                 "move-node-to-monitor --wrap-around next"
                 "focus-monitor --wrap-around next"
               ];
-              alt-c = "exec-and-forget ray color-picker pick-color";
-              alt-b = "exec-and-forget ray bitwarden search";
+              alt-c = exec "open raycast://extensions/thomas/color-picker/pick-color";
+              alt-v = exec "open raycast://extensions/raycast/clipboard-history/clipboard-history";
+              alt-b = exec "open raycast://extensions/jomifepe/bitwarden/search";
               alt-x = "close";
             }
             // mapToAttrs ["q" "w" "e" "r" "t" "y" "u" "i" "o" "p"] (k: {
