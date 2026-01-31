@@ -115,7 +115,7 @@ keybinds clear-defaults=true {
         bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
     }
     session {
-        bind "Ctrl x" { SwitchToMode "Normal"; }
+        bind "Super x" { SwitchToMode "Normal"; }
         bind "Ctrl s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
@@ -160,8 +160,8 @@ keybinds clear-defaults=true {
         bind "Super f" { ToggleFloatingPanes; }
         bind "Super n" { NewPane; }
         bind "Super w" { CloseFocus; }
-        bind "Super i" { MoveTab "Left"; }
-        bind "Super o" { MoveTab "Right"; }
+        // bind "Super i" { MoveTab "Left"; }
+        // bind "Super o" { MoveTab "Right"; }
         bind "Super h" { MoveFocusOrTab "Left"; }
         bind "Super l" { MoveFocusOrTab "Right"; }
         bind "Super j" { MoveFocus "Down"; }
@@ -186,13 +186,13 @@ keybinds clear-defaults=true {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
     }
     shared_except "session" "locked" {
-        bind "Ctrl x" { SwitchToMode "Session"; }
+        bind "Super x" { SwitchToMode "Session"; }
     }
     shared_except "tab" "locked" {
         bind "Ctrl t" { SwitchToMode "Tab"; }
     }
     shared_except "move" "locked" {
-        bind "Ctrl h" { SwitchToMode "Move"; }
+        bind "Super Shift h" { SwitchToMode "Move"; }
     }
 }
 
