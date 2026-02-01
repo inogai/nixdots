@@ -4,6 +4,10 @@
   lib,
   ...
 }: let
+  keys = import ../../lib/keybindings.nix;
+  dir = keys.direction;
+  mode = keys.mode;
+
   # Version-specific variables that should be updated when qutebrowser is upgraded
   appName = "qutebrowser";
   bundleIdentifier = "org.nixos.qutebrowser";
@@ -144,6 +148,19 @@ in {
         "xx" = "config-source";
         "xr" = "greasemonkey-reload;; reload";
         "xc" = "spawn sh -c 'echo \"{url}\" >> $HOME/urls.txt'";
+
+        # Direction keys (from lib/keybindings.nix)
+        ${dir.left} = "scroll-px 0 100";
+        ${dir.down} = "scroll-px 0 -100";
+        ${dir.up} = "scroll-px -100 0";
+        ${dir.right} = "scroll-px 100 0";
+        ${lib.toUpper dir.left} = "back";
+        ${lib.toUpper dir.down} = "forward";
+        ${lib.toUpper dir.up} = "tab-next";
+        ${lib.toUpper dir.right} = "tab-prev";
+
+        # Mode keys (from lib/keybindings.nix)
+        ${mode.insert} = "mode-enter insert";
       };
     };
   };

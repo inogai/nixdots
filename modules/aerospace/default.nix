@@ -4,6 +4,13 @@
   pkgs,
   ...
 }: let
+  keys = import ../../lib/keybindings.nix;
+  dir = keys.direction;
+  workspaces = keys.workspaces;
+  # Split workspaces: first 4 for monitor 1, rest for monitor 2
+  workspacesMon1 = lib.take 4 workspaces;
+  workspacesMon2 = lib.drop 4 workspaces;
+
   palette = config.colorScheme.palette;
   toJankyBordersColor = color: "0xff${color}"; # 0xff<color>
 
@@ -81,14 +88,15 @@ in {
               alt-f = "layout floating tiling";
               alt-g = "resize smart -50";
               alt-shift-g = "resize smart +50";
-              alt-h = "focus left";
-              alt-j = "focus down";
-              alt-k = "focus up";
-              alt-l = "focus right";
-              alt-shift-h = "move left";
-              alt-shift-j = "move down";
-              alt-shift-k = "move up";
-              alt-shift-l = "move right";
+              # Direction keys (from lib/keybindings.nix)
+              "alt-${dir.left}" = "focus left";
+              "alt-${dir.down}" = "focus down";
+              "alt-${dir.up}" = "focus up";
+              "alt-${dir.right}" = "focus right";
+              "alt-shift-${dir.left}" = "move left";
+              "alt-shift-${dir.down}" = "move down";
+              "alt-shift-${dir.up}" = "move up";
+              "alt-shift-${dir.right}" = "move right";
               alt-semicolon = "balance-sizes";
               alt-enter = exec "kitty -1 -d ~/";
               alt-esc = "focus-monitor --wrap-around next";
@@ -101,14 +109,15 @@ in {
               alt-b = exec "open raycast://extensions/jomifepe/bitwarden/search";
               alt-x = "close";
             }
-            // mapToAttrs ["q" "w" "e" "r" "t" "y" "u" "i" "o" "p"] (k: {
+            # Workspace keys (from lib/keybindings.nix)
+            // mapToAttrs workspaces (k: {
               name = "alt-${k}";
               value = [
                 "workspace ${k}"
                 "exec-and-forget noti -t 'Aerospace' 'Switched to workspace ${k}'"
               ];
             })
-            // mapToAttrs ["q" "w" "e" "r" "t" "y" "u" "i" "o" "p"] (k: {
+            // mapToAttrs workspaces (k: {
               name = "alt-shift-${k}";
               value = [
                 "move-node-to-workspace ${k}"
@@ -126,8 +135,8 @@ in {
 
       workspace-to-monitor-force-assignment =
         {}
-        // lib.genAttrs ["q" "w" "e" "r" "t"] (_: [1])
-        // lib.genAttrs ["y" "u" "i" "o" "p"] (_: [2 1]);
+        // lib.genAttrs workspacesMon1 (_: [1])
+        // lib.genAttrs workspacesMon2 (_: [2 1]);
 
       "on-window-detected" = [
         {
