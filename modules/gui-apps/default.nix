@@ -7,5 +7,6 @@
     prismlauncher
     bruno
     raycast
+    shottr
   ];
 }

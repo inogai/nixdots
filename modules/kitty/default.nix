@@ -54,7 +54,7 @@ in {
         modify_font underline_thickness 2
 
         # More Condensed Lines
-        modify_font cell_height -1px
+        modify_font cell_height -2px
 
         # Input Handling
         mouse_map left click ungrabbed mouse_handle_click selection link prompt
