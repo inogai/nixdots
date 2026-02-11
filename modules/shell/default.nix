@@ -5,6 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [
+    skim
     vivid
   ];
 
@@ -32,6 +33,9 @@
     '';
     environmentVariables = config.home.sessionVariables;
     shellAliases = config.home.shellAliases;
+    plugins = with pkgs.nushellPlugins; [
+      skim
+    ];
   };
 
   programs.atuin = {
