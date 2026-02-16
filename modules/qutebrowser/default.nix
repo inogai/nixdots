@@ -155,9 +155,9 @@ in {
         ${dir.up} = "scroll-px -100 0";
         ${dir.right} = "scroll-px 100 0";
         ${lib.toUpper dir.left} = "back";
-        ${lib.toUpper dir.down} = "forward";
-        ${lib.toUpper dir.up} = "tab-next";
-        ${lib.toUpper dir.right} = "tab-prev";
+        ${lib.toUpper dir.right} = "forward";
+        ${lib.toUpper dir.down} = "tab-next";
+        ${lib.toUpper dir.up} = "tab-prev";
 
         # Mode keys (from lib/keybindings.nix)
         ${mode.insert} = "mode-enter insert";
