@@ -22,6 +22,7 @@
     ./modules/tui-apps
     ./modules/zellij
     ./modules/podman
+    ./modules/syncthing
   ];
 
   # colorScheme = import ./lib/colorscheme.nix;
