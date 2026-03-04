@@ -8,23 +8,23 @@
   imports = [
     nix-colors.homeManagerModules.default
     ./modules/aerospace
-    ./modules/jankyborders
-    ./modules/sketchybar
-    ./modules/kitty
-    ./modules/shell
-    ./modules/yazi
-    ./modules/fzfmenu
-    ./modules/qutebrowser
-    ./modules/opencode
-    ./modules/latex
-    ./modules/fonts
-    ./modules/gui-apps
     ./modules/cli-utils
+    ./modules/fonts
+    ./modules/fzfmenu
+    ./modules/gui-apps
+    ./modules/jankyborders
+    ./modules/kitty
+    ./modules/latex
+    ./modules/opencode
+    ./modules/podman
+    ./modules/qutebrowser
+    ./modules/shell
+    ./modules/sketchybar
+    ./modules/syncthing
     ./modules/tmux
     ./modules/tui-apps
+    ./modules/yazi
     ./modules/zellij
-    ./modules/podman
-    ./modules/syncthing
   ];
 
   # colorScheme = import ./lib/colorscheme.nix;
