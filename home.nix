@@ -10,7 +10,7 @@
     ./modules/aerospace
     ./modules/cli-utils
     ./modules/fonts
-    ./modules/fzfmenu
+    # ./modules/fzfmenu
     ./modules/gui-apps
     ./modules/jankyborders
     ./modules/kitty
@@ -21,7 +21,7 @@
     ./modules/shell
     ./modules/sketchybar
     ./modules/syncthing
-    ./modules/tmux
+    # ./modules/tmux
     ./modules/tui-apps
     ./modules/yazi
     ./modules/zellij
