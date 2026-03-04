@@ -4,21 +4,70 @@
   pkgs,
   ...
 }: let
-  keys = import ../../lib/keybindings.nix;
-  dir = keys.direction;
-  workspaces = keys.workspaces;
-  # Split workspaces: first 4 for monitor 1, rest for monitor 2
-  workspacesMon1 = lib.take 4 workspaces;
-  workspacesMon2 = lib.drop 4 workspaces;
+  workspaces = [
+    {
+      key = "1";
+      name = "1:web";
+      monitor = 1;
+    }
+    {
+      key = "2";
+      name = "2:dev";
+      monitor = 2;
+    }
+    {
+      key = "3";
+      name = "3";
+      monitor = 1;
+    }
+    {
+      key = "4";
+      name = "4";
+      monitor = 2;
+    }
+    {
+      key = "5";
+      name = "5";
+      monitor = 1;
+    }
+    {
+      key = "6";
+      name = "6";
+      monitor = 2;
+    }
+    {
+      key = "7";
+      name = "7";
+      monitor = 1;
+    }
+    {
+      key = "8";
+      name = "8";
+      monitor = 2;
+    }
+    {
+      key = "9";
+      name = "9";
+      monitor = 1;
+    }
+    {
+      key = "0";
+      name = "10";
+      monitor = 2;
+    }
+  ];
+  # Group workspace names by monitor
+  workspaceNamesByMonitor = monitor: builtins.map (ws: ws.name) (builtins.filter (ws: ws.monitor == monitor) workspaces);
 
   palette = config.colorScheme.palette;
   toJankyBordersColor = color: "0xff${color}"; # 0xff<color>
 
   # fn: a -> { name = string; value = any; }
-  mapToAttrs = list: fn:
-    builtins.listToAttrs (builtins.map fn
-      list);
-  modeFn = f: ["mode ${f}" "exec-and-forget noti -t 'Aerospace' 'Mode ${f}'"];
+  mapToAttrs = list: fn: builtins.listToAttrs (builtins.map fn list);
+  modeFn = f: [
+    "mode ${f}"
+    "exec-and-forget noti -t 'Aerospace' 'Mode ${f}'"
+  ];
   exec = f: "exec-and-forget ${f}";
 in {
   home.packages = with pkgs; [
@@ -26,10 +75,9 @@ in {
     sketchybar-app-font
   ];
 
-  xdg.configFile."sbar-inogai/config.lua".text = ''
-    return ${
-      lib.generators.toLua {} (builtins.mapAttrs (key: value: "0xff${value}") palette)
-    }'';
+  xdg.configFile."sbar-inogai/config.lua".text = "return ${
+    lib.generators.toLua {} (builtins.mapAttrs (key: value: "0xff${value}") palette)
+  }";
 
   services.jankyborders = {
     enable = true;
@@ -89,14 +137,14 @@ in {
               alt-g = "resize smart -50";
               alt-shift-g = "resize smart +50";
               # Direction keys (from lib/keybindings.nix)
-              "alt-${dir.left}" = "focus left";
-              "alt-${dir.down}" = "focus down";
-              "alt-${dir.up}" = "focus up";
-              "alt-${dir.right}" = "focus right";
-              "alt-shift-${dir.left}" = "move left";
-              "alt-shift-${dir.down}" = "move down";
-              "alt-shift-${dir.up}" = "move up";
-              "alt-shift-${dir.right}" = "move right";
+              "alt-h" = "focus left";
+              "alt-j" = "focus down";
+              "alt-k" = "focus up";
+              "alt-l" = "focus right";
+              "alt-shift-h" = "move left";
+              "alt-shift-j" = "move down";
+              "alt-shift-k" = "move up";
+              "alt-shift-l" = "move right";
               alt-semicolon = "balance-sizes";
               alt-enter = exec "kitty -1 -d ~/";
               alt-esc = "focus-monitor --wrap-around next";
@@ -110,19 +158,19 @@ in {
               alt-x = "close";
             }
             # Workspace keys (from lib/keybindings.nix)
-            // mapToAttrs workspaces (k: {
-              name = "alt-${k}";
+            // mapToAttrs workspaces (ws: {
+              name = "alt-${ws.key}";
               value = [
-                "workspace ${k}"
-                "exec-and-forget noti -t 'Aerospace' 'Switched to workspace ${k}'"
+                "workspace ${ws.name}"
+                "exec-and-forget noti -t 'Aerospace' 'Switched to workspace ${ws.name}'"
               ];
             })
-            // mapToAttrs workspaces (k: {
-              name = "alt-shift-${k}";
+            // mapToAttrs workspaces (ws: {
+              name = "alt-shift-${ws.key}";
               value = [
-                "move-node-to-workspace ${k}"
-                "workspace ${k}"
-                "exec-and-forget noti -t 'Aerospace' 'Moved window to workspace ${k}'"
+                "move-node-to-workspace ${ws.name}"
+                "workspace ${ws.name}"
+                "exec-and-forget noti -t 'Aerospace' 'Moved window to workspace ${ws.name}'"
               ];
             });
         };
@@ -135,8 +183,11 @@ in {
 
       workspace-to-monitor-force-assignment =
         {}
-        // lib.genAttrs workspacesMon1 (_: [1])
-        // lib.genAttrs workspacesMon2 (_: [2 1]);
+        // lib.genAttrs (workspaceNamesByMonitor 1) (_: [1])
+        // lib.genAttrs (workspaceNamesByMonitor 2) (_: [
+          2 # prioritize monitor 2, if not available, use monitor 1
+          1
+        ]);
 
       "on-window-detected" = [
         {
