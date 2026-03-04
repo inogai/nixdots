@@ -59,9 +59,6 @@
   # Group workspace names by monitor
   workspaceNamesByMonitor = monitor: builtins.map (ws: ws.name) (builtins.filter (ws: ws.monitor == monitor) workspaces);
 
-  palette = config.colorScheme.palette;
-  toJankyBordersColor = color: "0xff${color}"; # 0xff<color>
-
   # fn: a -> { name = string; value = any; }
   mapToAttrs = list: fn: builtins.listToAttrs (builtins.map fn list);
   modeFn = f: [
@@ -70,26 +67,6 @@
   ];
   exec = f: "exec-and-forget ${f}";
 in {
-  home.packages = with pkgs; [
-    sbar-inogai
-    sketchybar-app-font
-  ];
-
-  xdg.configFile."sbar-inogai/config.lua".text = "return ${
-    lib.generators.toLua {} (builtins.mapAttrs (key: value: "0xff${value}") palette)
-  }";
-
-  services.jankyborders = {
-    enable = true;
-    settings = {
-      active_color = toJankyBordersColor palette.base0E;
-      inactive_color = toJankyBordersColor palette.base04;
-      style = "round";
-      hidpi = "off";
-      width = 8;
-    };
-  };
-
   programs.aerospace = {
     enable = true;
     launchd.enable = true;

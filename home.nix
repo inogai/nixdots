@@ -8,6 +8,8 @@
   imports = [
     nix-colors.homeManagerModules.default
     ./modules/aerospace
+    ./modules/jankyborders
+    ./modules/sketchybar
     ./modules/kitty
     ./modules/shell
     ./modules/yazi
