@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    jetbrains-mono
+    # jetbrains-mono
     victor-mono
     ibm-plex
     nerd-fonts.symbols-only

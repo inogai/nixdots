@@ -36,7 +36,7 @@ in {
 
     pandoc
 
-    uv
+    # uv
     deno
 
     nix-prefetch-git

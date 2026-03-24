@@ -5,7 +5,7 @@
 }: {
   home.packages = with pkgs; [
     prismlauncher
-    bruno
+    # bruno
     raycast
     shottr
   ];

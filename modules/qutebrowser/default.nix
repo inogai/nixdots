@@ -111,10 +111,6 @@
       '';
   });
 in {
-  home.packages = with pkgs; [
-    iosevka
-  ];
-
   programs.qutebrowser = {
     enable = true;
     package = customQutebrowser;
@@ -127,7 +123,7 @@ in {
     settings = {
       url.default_page = "https://www.google.com";
       colors.webpage.bg = "white";
-      fonts.default_family = "Iosevka";
+      # fonts.default_family = "Iosevka";
       fonts.default_size = "18pt";
       tabs.position = "left";
       editor.command = [
