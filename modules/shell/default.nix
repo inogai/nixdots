@@ -5,7 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    skim
+    # skim
     vivid
   ];
 
@@ -34,7 +34,7 @@
     environmentVariables = config.home.sessionVariables;
     shellAliases = config.home.shellAliases;
     plugins = with pkgs.nushellPlugins; [
-      skim
+      # skim
     ];
   };
 

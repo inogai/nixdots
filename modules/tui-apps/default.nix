@@ -4,7 +4,8 @@
   ...
 }: {
   home.packages = with pkgs; [
-    nvim-inogai
+    neovim
+    # nvim-inogai
   ];
 
   programs.lazygit = {

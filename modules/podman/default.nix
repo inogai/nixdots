@@ -10,7 +10,7 @@
   ];
 
   services.podman = {
-    enable = true;
+    enable = false;
 
     settings.containers = {
       engine = {
