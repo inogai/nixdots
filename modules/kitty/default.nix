@@ -19,7 +19,7 @@
     lib.foldl _mergeTwo {} configs;
 in {
   programs.kitty = mergeConfigs [
-    fonts.victor
+    fonts.plex
     fonts.nerdFontOverrides
     colorscheme
     {
@@ -52,9 +52,6 @@ in {
         # Underline Adjustments
         modify_font underline_position 130% - 2
         modify_font underline_thickness 2
-
-        # More Condensed Lines
-        modify_font cell_height -2px
 
         # Input Handling
         mouse_map left click ungrabbed mouse_handle_click selection link prompt

@@ -8,6 +8,7 @@
     };
 
     extraConfig = ''
+      modify_font cell_height -2px
       modify_font baseline -2
     '';
   };
@@ -16,6 +17,10 @@
   };
   plex = {
     settings.font_family = "Lilex";
+    extraConfig = ''
+      modify_font cell_height 0px
+      modify_font baseline 0
+    '';
   };
   nerdFontOverrides = {
     extraConfig = ''
