@@ -27,6 +27,7 @@ in {
     ripgrep
     github-cli
     trash-cli
+    p7zip
 
     coreutils
     jq
@@ -67,5 +68,9 @@ in {
   services.ssh-agent = {
     enable = true;
     defaultMaximumIdentityLifetime = 3600;
+  };
+
+  programs.ripgrep-all = {
+    enable = true;
   };
 }
