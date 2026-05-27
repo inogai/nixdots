@@ -11,6 +11,8 @@
     lilex
     nerd-fonts.lilex
 
+    noto-fonts-cjk-serif-static
+
     inter
   ];
 }
