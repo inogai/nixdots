@@ -10,7 +10,6 @@
     ./modules/aerospace
     ./modules/cli-utils
     ./modules/fonts
-    # ./modules/fzfmenu
     ./modules/gui-apps
     ./modules/jankyborders
     ./modules/kitty
