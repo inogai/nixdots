@@ -20,7 +20,6 @@
     ./modules/shell
     ./modules/sketchybar
     ./modules/syncthing
-    # ./modules/tmux
     ./modules/tui-apps
     ./modules/yazi
     ./modules/zellij
