@@ -129,10 +129,11 @@ in {
                 "move-node-to-monitor --wrap-around next"
                 "focus-monitor --wrap-around next"
               ];
-              alt-c = exec "open raycast://extensions/thomas/color-picker/pick-color";
-              alt-v = exec "open raycast://extensions/raycast/clipboard-history/clipboard-history";
-              alt-b = exec "open raycast://extensions/jomifepe/bitwarden/search";
+              # alt-c = exec "open raycast://extensions/thomas/color-picker/pick-color";
+              # alt-v = exec "open raycast://extensions/raycast/clipboard-history/clipboard-history";
+              # alt-b = exec "open raycast://extensions/jomifepe/bitwarden/search";
               alt-x = "close";
+              alt-space = exec "open -a Raycast";
             }
             # Workspace keys (from lib/keybindings.nix)
             // mapToAttrs workspaces (ws: {

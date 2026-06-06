@@ -29,6 +29,9 @@ in {
     trash-cli
     p7zip
 
+    gnutar
+    zstd
+
     coreutils
     jq
     yq-go
