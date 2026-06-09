@@ -39,13 +39,11 @@
     };
     nix-ai-tools.url = "github:numtide/nix-ai-tools";
     nix-colors.url = "github:misterio77/nix-colors";
-    hm-ricing-mode.url = "github:mipmip/hm-ricing-mode";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
-    hm-ricing-mode,
     nur,
     nvim-inogai,
     sbar-inogai,
@@ -70,7 +68,7 @@
 
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
-      modules = [./home.nix hm-ricing-mode.homeManagerModules.hm-ricing-mode];
+      modules = [./home.nix];
 
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix

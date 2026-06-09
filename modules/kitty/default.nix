@@ -67,9 +67,4 @@ in {
       '';
     }
   ];
-
-  programs.hm-ricing-mode.apps.kitty = {
-    dest_dir = ".config/kitty";
-    type = "backport";
-  };
 }

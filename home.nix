@@ -39,7 +39,6 @@
   news.display = "silent";
 
   programs.home-manager.enable = true;
-  programs.hm-ricing-mode.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (pkgs.lib.getName pkg) [

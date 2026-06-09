@@ -12,10 +12,4 @@
     source = ./.;
     recursive = true;
   };
-
-  programs.hm-ricing-mode.apps.opencode = {
-    dest_dir = ".config/opencode";
-    source_dir = "$HOME/.config/home-manager/modules/opencode";
-    type = "symlink";
-  };
 }
