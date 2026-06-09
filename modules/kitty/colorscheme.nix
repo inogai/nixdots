@@ -2,9 +2,11 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   pal = config.colorScheme.palette;
-in {
+in
+{
   settings = {
     selection_foreground = "#${pal.base05}";
     selection_background = "#${pal.base02}";

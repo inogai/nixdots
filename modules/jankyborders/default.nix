@@ -1,7 +1,9 @@
-{config, ...}: let
+{ config, ... }:
+let
   palette = config.colorScheme.palette;
   toJankyBordersColor = color: "0xff${color}";
-in {
+in
+{
   services.jankyborders = {
     enable = true;
     settings = {

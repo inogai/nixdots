@@ -3,10 +3,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   fzfOptions = [
     "--prompt=❯"
-    ''--gutter=' ' ''
+    "--gutter=' ' "
     "--color=bg:-1,bg+:-1"
     "--color=hl:#d8a657,hl+:#d8a657:reverse"
     "--color=fg:#ebdbb2,fg+:#ebdbb2:reverse"
@@ -17,7 +18,8 @@
     "--color=info:#a89984,separator:#a89984"
     "--color=query:#ebdbb2:regular"
   ];
-in {
+in
+{
   home.packages = with pkgs; [
     git
     gnupg

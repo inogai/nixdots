@@ -2,9 +2,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   shellPopup = cmd: "shell -- zellij run --floating -- ${cmd}";
-in {
+in
+{
   programs.yazi = {
     enable = true;
     enableNushellIntegration = true;
@@ -21,8 +23,14 @@ in {
       mgr = {
         prepend_keymap = [
           {
-            on = ["<C-x>" "<Space>"];
-            run = ["toggle" "arrow prev"];
+            on = [
+              "<C-x>"
+              "<Space>"
+            ];
+            run = [
+              "toggle"
+              "arrow prev"
+            ];
           }
           {
             on = "o";
@@ -35,22 +43,32 @@ in {
             desc = "Open hovered interactively";
           }
           {
-            on = ["<S-p>"];
-            run = ["enter" "paste" "leave"];
+            on = [ "<S-p>" ];
+            run = [
+              "enter"
+              "paste"
+              "leave"
+            ];
             desc = "Paste into Folder";
           }
           {
-            on = ["g" "d"];
+            on = [
+              "g"
+              "d"
+            ];
             run = "cd ~/Downloads/";
             desc = "cd Downloads";
           }
           {
-            on = ["g" "l"];
+            on = [
+              "g"
+              "l"
+            ];
             run = "shell --block lazygit";
             desc = "Lazygit";
           }
           {
-            on = ["R"];
+            on = [ "R" ];
             run = "rename --hovered --empty=stem --cursor=start";
             desc = "Rename File";
           }
@@ -74,8 +92,7 @@ in {
     };
 
     flavors = {
-      inherit
-        (pkgs.yaziFlavors)
+      inherit (pkgs.yaziFlavors)
         catppuccin-mocha
         catppuccin-latte
         ;

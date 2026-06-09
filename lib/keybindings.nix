@@ -14,7 +14,17 @@ let
       mode = {
         insert = "l";
       };
-      workspaces = ["q" "w" "f" "p" "b" "j" "l" "u" "y"];
+      workspaces = [
+        "q"
+        "w"
+        "f"
+        "p"
+        "b"
+        "j"
+        "l"
+        "u"
+        "y"
+      ];
     };
     qwerty = {
       direction = {
@@ -26,8 +36,18 @@ let
       mode = {
         insert = "i";
       };
-      workspaces = ["q" "w" "e" "r" "t" "y" "u" "i" "o"];
+      workspaces = [
+        "q"
+        "w"
+        "e"
+        "r"
+        "t"
+        "y"
+        "u"
+        "i"
+        "o"
+      ];
     };
   };
 in
-  presets.${preset}
+presets.${preset}

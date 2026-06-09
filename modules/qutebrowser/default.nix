@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   keys = import ../../lib/keybindings.nix;
   dir = keys.direction;
   mode = keys.mode;
@@ -94,23 +95,22 @@
   '';
 
   customQutebrowser = pkgs.qutebrowser.overrideAttrs (oldAttrs: {
-    postFixup =
-      (oldAttrs.postFixup or "")
-      + ''
-        PLIST_PATH="$out/Applications/qutebrowser.app/Contents/Info.plist"
-        if [ -f "$PLIST_PATH" ]; then
-          echo "Found existing Info.plist, modifying to add URL scheme handlers..."
-          cat > "$PLIST_PATH" << 'EOF'
-        ${infoPlistContent}EOF
-          echo "Info.plist successfully updated with HTTP/HTTPS URL schemes"
-        else
-          echo "WARNING: Info.plist not found at $PLIST_PATH"
-          echo "Bundle structure:"
-          ls -la "$out/Applications/qutebrowser.app/Contents/" 2>/dev/null || echo "Bundle does not exist"
-        fi
-      '';
+    postFixup = (oldAttrs.postFixup or "") + ''
+      PLIST_PATH="$out/Applications/qutebrowser.app/Contents/Info.plist"
+      if [ -f "$PLIST_PATH" ]; then
+        echo "Found existing Info.plist, modifying to add URL scheme handlers..."
+        cat > "$PLIST_PATH" << 'EOF'
+      ${infoPlistContent}EOF
+        echo "Info.plist successfully updated with HTTP/HTTPS URL schemes"
+      else
+        echo "WARNING: Info.plist not found at $PLIST_PATH"
+        echo "Bundle structure:"
+        ls -la "$out/Applications/qutebrowser.app/Contents/" 2>/dev/null || echo "Bundle does not exist"
+      fi
+    '';
   });
-in {
+in
+{
   programs.qutebrowser = {
     enable = true;
     package = customQutebrowser;

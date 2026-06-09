@@ -3,21 +3,23 @@
   lib,
   pkgs,
   ...
-}: let
-  colorscheme = import ./colorscheme.nix {inherit config lib;};
+}:
+let
+  colorscheme = import ./colorscheme.nix { inherit config lib; };
   fonts = import ./fonts.nix;
 
-  _mergeTwo = acc: conf:
+  _mergeTwo =
+    acc: conf:
     acc
     // {
       enable = true;
-      settings = (acc.settings or {}) // (conf.settings or {});
+      settings = (acc.settings or { }) // (conf.settings or { });
       extraConfig = (acc.extraConfig or "") + "\n" + (conf.extraConfig or "");
     };
 
-  mergeConfigs = configs:
-    lib.foldl _mergeTwo {} configs;
-in {
+  mergeConfigs = configs: lib.foldl _mergeTwo { } configs;
+in
+{
   programs.kitty = mergeConfigs [
     fonts.plex
     fonts.nerdFontOverrides

@@ -41,40 +41,44 @@
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    nur,
-    nvim-inogai,
-    sbar-inogai,
-    nix-yazi-flavors,
-    nix-ai-tools,
-    nix-colors,
-    ...
-  }: let
-    system = "aarch64-darwin";
-    overlay = final: prev:
-      (nur.overlays.default final prev)
-      // (nix-yazi-flavors.overlays.default final prev)
-      // {
-        nvim-inogai = nvim-inogai.outputs.packages.${final.system}.nvim-inogai;
-        sbar-inogai = sbar-inogai.outputs.packages.${final.system}.sbar-inogai;
-        nix-ai-tools = nix-ai-tools.outputs.packages.${final.system};
-      };
-    pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
-  in {
-    homeConfigurations."inogai" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nur,
+      nvim-inogai,
+      sbar-inogai,
+      nix-yazi-flavors,
+      nix-ai-tools,
+      nix-colors,
+      ...
+    }:
+    let
+      system = "aarch64-darwin";
+      overlay =
+        final: prev:
+        (nur.overlays.default final prev)
+        // (nix-yazi-flavors.overlays.default final prev)
+        // {
+          nvim-inogai = nvim-inogai.outputs.packages.${final.system}.nvim-inogai;
+          sbar-inogai = sbar-inogai.outputs.packages.${final.system}.sbar-inogai;
+          nix-ai-tools = nix-ai-tools.outputs.packages.${final.system};
+        };
+      pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
+    in
+    {
+      homeConfigurations."inogai" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-      # Specify your home configuration modules here, for example,
-      # the path to your home.nix.
-      modules = [./home.nix];
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [ ./home.nix ];
 
-      # Optionally use extraSpecialArgs
-      # to pass through arguments to home.nix
-      extraSpecialArgs = {
-        inherit nix-colors;
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
+        extraSpecialArgs = {
+          inherit nix-colors;
+        };
       };
     };
-  };
 }

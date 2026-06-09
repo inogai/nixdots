@@ -4,7 +4,8 @@
   pkgs,
   nix-colors,
   ...
-}: {
+}:
+{
   imports = [
     nix-colors.homeManagerModules.default
     ./modules/aerospace
@@ -33,14 +34,15 @@
   home.homeDirectory = "/Users/inogai";
 
   home.stateVersion = "26.05";
-  home.packages = [];
-  home.file = {};
+  home.packages = [ ];
+  home.file = { };
 
   news.display = "silent";
 
   programs.home-manager.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (pkgs.lib.getName pkg) [
       "raycast"
       "shottr"
