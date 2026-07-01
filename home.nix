@@ -24,6 +24,7 @@
     ./modules/tui-apps
     ./modules/yazi
     ./modules/zellij
+    ./modules/nvim
   ];
 
   # colorScheme = import ./lib/colorscheme.nix;

@@ -11,11 +11,11 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "nvim-inogai";
+    EDITOR = "nvim";
   };
 
   home.shellAliases = {
-    nv = "nvim-inogai";
+    nv = "nvim";
     zj = "zellij";
   };
 
