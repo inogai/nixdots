@@ -23,11 +23,7 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvim-inogai = {
-      url = "github:inogai/nvim-inogai";
-      # url = "git+file:///Users/inogai/flakes/nvim-inogai/";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nvim-inogai.url = "github:inogai/nvim-inogai";
     sbar-inogai = {
       url = "github:inogai/sbar-inogai";
       # url = "git+file:///Users/inogai/flakes/sbar-inogai/";
@@ -55,15 +51,21 @@
     }:
     let
       system = "aarch64-darwin";
-      overlay =
-        final: prev:
-        (nur.overlays.default final prev)
-        // {
-          nvim-inogai = nvim-inogai.outputs.packages.${final.system}.nvim-inogai;
-          sbar-inogai = sbar-inogai.outputs.packages.${final.system}.sbar-inogai;
-          nix-ai-tools = nix-ai-tools.outputs.packages.${final.system};
-        };
-      pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
+      overlays = [
+        nur.overlays.default
+        # nvim-inogai's own overlay re-wraps `final.neovim-unwrapped`, which
+        # binds the version to whichever nixpkgs the overlay is applied to.
+        # Use the pre-built package from nvim-inogai's own nixpkgs instead so
+        # the version is pinned regardless of HM's nixpkgs revision.
+        (final: prev: {
+          neovim = nvim-inogai.packages.${final.system}.neovim;
+          sbar-inogai = sbar-inogai.packages.${final.system}.sbar-inogai;
+          nix-ai-tools = nix-ai-tools.packages.${final.system};
+        })
+      ];
+      pkgs = nixpkgs.legacyPackages.${system}.extend (
+        nixpkgs.lib.composeManyExtensions overlays
+      );
     in
     {
       homeConfigurations."inogai" = home-manager.lib.homeManagerConfiguration {
@@ -85,7 +87,6 @@
           ./modules/tui-apps
           ./modules/yazi
           ./modules/zellij
-          ./modules/nvim
 
           ./home.nix
         ];

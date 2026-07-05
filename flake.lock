@@ -157,21 +157,6 @@
         "type": "github"
       }
     },
-    "nixCats": {
-      "locked": {
-        "lastModified": 1770584904,
-        "narHash": "sha256-9Zaz8lbKF2W9pwXZEnbiGsicHdBoU+dHt3Wv3mCJoZ8=",
-        "owner": "BirdeeHub",
-        "repo": "nixCats-nvim",
-        "rev": "538fdde784d2909700d97a8ef307783b33a86fb1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "BirdeeHub",
-        "repo": "nixCats-nvim",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1771423170,
@@ -236,15 +221,15 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1770537093,
-        "narHash": "sha256-pF1quXG5wsgtyuPOHcLfYg/ft/QMr8NnX0i6tW2187s=",
-        "owner": "nixos",
+        "lastModified": 1783187857,
+        "narHash": "sha256-CoKGv2FwkvFwzsVLB/N89eFjr40puk/p51IMvIp+ddo=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fef9403a3e4d31b0a23f0bacebbec52c248fbb51",
+        "rev": "19a8a1e6d8b7315b6fd84e5a51977ce6f69d5a5b",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
+        "owner": "NixOS",
         "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -273,90 +258,20 @@
     },
     "nvim-inogai": {
       "inputs": {
-        "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_3",
-        "plugins-indent-rainbowline.nvim": "plugins-indent-rainbowline.nvim",
-        "plugins-moegi.nvim": "plugins-moegi.nvim",
-        "plugins-nvim-treesitter-textobjects": "plugins-nvim-treesitter-textobjects",
-        "plugins-opencode.nvim": "plugins-opencode.nvim"
+        "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1770627619,
-        "narHash": "sha256-L33VgP5UQ1Jzmfy3x7lrFbgMi13iHlO9VvZis3qXiSk=",
+        "lastModified": 1783254535,
+        "narHash": "sha256-tZEoqm9A29pa6QoRUzAIqSPSw24idptix5F5nDFu3XA=",
         "owner": "inogai",
         "repo": "nvim-inogai",
-        "rev": "5125bc25da72aa3f7333d981941399cb085d375d",
+        "rev": "ddc78ed9be02d7fd92d4f983c053dff24166b7e2",
         "type": "github"
       },
       "original": {
         "owner": "inogai",
         "repo": "nvim-inogai",
-        "type": "github"
-      }
-    },
-    "plugins-indent-rainbowline.nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1733179713,
-        "narHash": "sha256-dSXNtbyPY5ZWT/RCYsmy/swgErJm7zSfaDd5J+15wYc=",
-        "owner": "TheGLander",
-        "repo": "indent-rainbowline.nvim",
-        "rev": "572e8157de85d7af3f0085b5c74c059518900649",
-        "type": "github"
-      },
-      "original": {
-        "owner": "TheGLander",
-        "repo": "indent-rainbowline.nvim",
-        "type": "github"
-      }
-    },
-    "plugins-moegi.nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1764306923,
-        "narHash": "sha256-76fK6OkzCXKy9XHtCJW9ijyCuXIkz8oX8Xqn06C4T+A=",
-        "owner": "inogai",
-        "repo": "moegi.nvim",
-        "rev": "2202fcb6ec8789e0f80700832fdd12aa006e5875",
-        "type": "github"
-      },
-      "original": {
-        "owner": "inogai",
-        "ref": "dev",
-        "repo": "moegi.nvim",
-        "type": "github"
-      }
-    },
-    "plugins-nvim-treesitter-textobjects": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1769600306,
-        "narHash": "sha256-J3D+nbalJqZ4aeFBD7veW6TuI0BEU2jbx5pMEew4dkA=",
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter-textobjects",
-        "rev": "a0e182ae21fda68c59d1f36c9ed45600aef50311",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-treesitter",
-        "ref": "main",
-        "repo": "nvim-treesitter-textobjects",
-        "type": "github"
-      }
-    },
-    "plugins-opencode.nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1770417731,
-        "narHash": "sha256-L2rJJeKH0tgMc4x009VKxHbcPvcZTvnlvo4CC1ZP54Q=",
-        "owner": "NickvanDyke",
-        "repo": "opencode.nvim",
-        "rev": "a13db1c0364319d3ebde65030005dea9f8a198cc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NickvanDyke",
-        "repo": "opencode.nvim",
         "type": "github"
       }
     },
@@ -441,6 +356,27 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "wrappers": {
+      "inputs": {
+        "nixpkgs": [
+          "nvim-inogai",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782135443,
+        "narHash": "sha256-vAmbArdCyjqpVW+37aCy/PMBOLIqukUXLQuEKLwUhA4=",
+        "owner": "BirdeeHub",
+        "repo": "nix-wrapper-modules",
+        "rev": "6e7f66fa2cdf4d63162580b438f7fcf87c28a46f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BirdeeHub",
+        "repo": "nix-wrapper-modules",
         "type": "github"
       }
     }

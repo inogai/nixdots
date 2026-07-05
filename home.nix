@@ -24,6 +24,9 @@
   home.packages = with pkgs; [
     raycast
     shottr
+
+    neovim
+    nodejs
   ];
 
   nixpkgs.config.allowUnfreePredicate =
@@ -45,7 +48,6 @@
     syncthing.enable = true;
 
     cli-utils.enable = true;
-    nvim.enable = true;
     shell.enable = true;
     tui-apps.enable = true;
     yazi.enable = true;
