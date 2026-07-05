@@ -35,5 +35,7 @@
 
   my.modules = {
     yazi.enable = true;
+    kitty.enable = true;
+    kitty.mapShiftSpaceToCxSpace = true;
   };
 }
