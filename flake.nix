@@ -77,7 +77,6 @@
           ./modules/aerospace
           ./modules/cli-utils
           ./modules/fonts
-          ./modules/gui-apps
           ./modules/jankyborders
           ./modules/kitty
           ./modules/qutebrowser
