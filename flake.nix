@@ -72,7 +72,28 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [
+          nix-colors.homeManagerModules.default
+          ./modules/aerospace
+          ./modules/cli-utils
+          ./modules/fonts
+          ./modules/gui-apps
+          ./modules/jankyborders
+          ./modules/kitty
+          ./modules/latex
+          ./modules/opencode
+          ./modules/podman
+          ./modules/qutebrowser
+          ./modules/shell
+          ./modules/sketchybar
+          ./modules/syncthing
+          ./modules/tui-apps
+          ./modules/yazi
+          ./modules/zellij
+          ./modules/nvim
+
+          ./home.nix
+        ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix

@@ -6,27 +6,6 @@
   ...
 }:
 {
-  imports = [
-    nix-colors.homeManagerModules.default
-    ./modules/aerospace
-    ./modules/cli-utils
-    ./modules/fonts
-    ./modules/gui-apps
-    ./modules/jankyborders
-    ./modules/kitty
-    ./modules/latex
-    ./modules/opencode
-    ./modules/podman
-    ./modules/qutebrowser
-    ./modules/shell
-    ./modules/sketchybar
-    ./modules/syncthing
-    ./modules/tui-apps
-    ./modules/yazi
-    ./modules/zellij
-    ./modules/nvim
-  ];
-
   # colorScheme = import ./lib/colorscheme.nix;
   # colorScheme = nix-colors.colorSchemes.gruvbox-dark-medium;
   colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
