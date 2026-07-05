@@ -77,6 +77,7 @@
           nix-colors.homeManagerModules.default
           ./modules/aerospace
           ./modules/cli-utils
+          ./modules/cli-extras
           ./modules/fonts
           ./modules/jankyborders
           ./modules/kitty

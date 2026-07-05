@@ -48,6 +48,7 @@
     syncthing.enable = true;
 
     cli-utils.enable = true;
+    cli-extras.enable = true;
     shell.enable = true;
     tui-apps.enable = true;
     yazi.enable = true;

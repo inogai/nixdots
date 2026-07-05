@@ -22,48 +22,83 @@ let
   ];
 in
 {
-  options.my.modules.cli-utils.enable = lib.mkEnableOption "CLI utilities";
+  options.my.modules.cli-utils.enable = lib.mkEnableOption "essential CLI utilities";
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      git
-      gnupg
-      wget
-      curl
-      fd
-      ripgrep
-      github-cli
-      trash-cli
-      p7zip
+    home.packages =
+      with pkgs;
+      [
+        # --- Core / file operations ---
+        coreutils
+        findutils
+        diffutils
+        file
+        which
+        gnutar
+        p7zip
+        zstd
+        gzip
+        xz
+        unzip
+        zip
+        trash-cli
 
-      gnutar
-      zstd
+        # --- Networking ---
+        curl
+        wget
+        dig
+        httpie
+        openssh
 
-      coreutils
-      jq
-      yq-go
-      util-linux
-      socat
+        # --- Search / filter / view ---
+        ripgrep
+        fd
+        jq
+        yq-go
+        less
+        bat
+        tree
+        delta
 
-      pandoc
+        # --- Data / text processing ---
+        gnused
+        gawk
+        bc
+        perl
+        python3
 
-      deno
+        # --- System / process inspection ---
+        util-linux
+        lsof
+        htop
+        btop
 
-      nix-prefetch-git
+        # --- Security / crypto ---
+        gnupg
+        age
+        openssl
 
-      wakatime-cli
+        # --- VCS ---
+        git
+        github-cli
+        git-lfs
+        lazygit
 
-      (writeShellScriptBin "noti" (builtins.readFile ./noti))
+        # --- Nix ---
+        nix-prefetch-git
+        nixpkgs-fmt
+        nvd
+        nix-output-monitor
 
-      (writeShellScriptBin "md2pdf" ''
-        exec ${./md2pdf.ts} "$@"
-      '')
+        # --- macOS platform helpers ---
+        (writeShellScriptBin "noti" (builtins.readFile ./noti))
 
-      (writeShellScriptBin "fzf" ''
-        export FZF_DEFAULT_OPTS="${lib.concatStringsSep " " fzfOptions}"
-        exec ${pkgs.fzf}/bin/fzf "$@"
-      '')
-    ];
+        # --- Themed wrappers ---
+        (writeShellScriptBin "fzf" ''
+          export FZF_DEFAULT_OPTS="${lib.concatStringsSep " " fzfOptions}"
+          exec ${pkgs.fzf}/bin/fzf "$@"
+        '')
+      ];
 
     programs.ssh = {
       enable = true;
