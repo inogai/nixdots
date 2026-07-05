@@ -5,6 +5,8 @@
   ...
 }:
 let
+  cfg = config.my.modules.cli-utils;
+
   fzfOptions = [
     "--prompt=❯"
     "--gutter=' ' "
@@ -20,62 +22,64 @@ let
   ];
 in
 {
-  home.packages = with pkgs; [
-    git
-    gnupg
-    wget
-    curl
-    fd
-    ripgrep
-    github-cli
-    trash-cli
-    p7zip
+  options.my.modules.cli-utils.enable = lib.mkEnableOption "CLI utilities";
 
-    gnutar
-    zstd
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      git
+      gnupg
+      wget
+      curl
+      fd
+      ripgrep
+      github-cli
+      trash-cli
+      p7zip
 
-    coreutils
-    jq
-    yq-go
-    util-linux
-    socat
+      gnutar
+      zstd
 
-    pandoc
+      coreutils
+      jq
+      yq-go
+      util-linux
+      socat
 
-    # uv
-    deno
+      pandoc
 
-    nix-prefetch-git
+      deno
 
-    wakatime-cli
+      nix-prefetch-git
 
-    (writeShellScriptBin "noti" (builtins.readFile ./noti))
+      wakatime-cli
 
-    (writeShellScriptBin "md2pdf" ''
-      exec ${./md2pdf.ts} "$@"
-    '')
+      (writeShellScriptBin "noti" (builtins.readFile ./noti))
 
-    (writeShellScriptBin "fzf" ''
-      export FZF_DEFAULT_OPTS="${lib.concatStringsSep " " fzfOptions}"
-      exec ${pkgs.fzf}/bin/fzf "$@"
-    '')
-  ];
+      (writeShellScriptBin "md2pdf" ''
+        exec ${./md2pdf.ts} "$@"
+      '')
 
-  programs.ssh = {
-    enable = true;
-    enableDefaultConfig = false;
-    matchBlocks."*" = {
-      # test ssh-agent with `ssh-add -l` after unlocking
-      addKeysToAgent = "12h";
-      forwardAgent = true;
+      (writeShellScriptBin "fzf" ''
+        export FZF_DEFAULT_OPTS="${lib.concatStringsSep " " fzfOptions}"
+        exec ${pkgs.fzf}/bin/fzf "$@"
+      '')
+    ];
+
+    programs.ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      matchBlocks."*" = {
+        addKeysToAgent = "12h";
+        forwardAgent = true;
+      };
     };
-  };
-  services.ssh-agent = {
-    enable = true;
-    defaultMaximumIdentityLifetime = 3600;
-  };
+    services.ssh-agent = {
+      enable = true;
+      defaultMaximumIdentityLifetime = 3600;
+    };
 
-  programs.ripgrep-all = {
-    enable = true;
+    programs.ripgrep-all = {
+      enable = true;
+    };
   };
 }

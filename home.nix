@@ -34,9 +34,21 @@
     ];
 
   my.modules = {
-    yazi.enable = true;
+    # Software Modules - Only for MacOS
+    aerospace.enable = true;
+    fonts.enable = true;
+    jankyborders.enable = true;
     kitty.enable = true;
     kitty.mapShiftSpaceToCxSpace = true;
+    qutebrowser.enable = true;
+    sketchybar.enable = true;
+    syncthing.enable = true;
+
+    cli-utils.enable = true;
+    nvim.enable = true;
+    shell.enable = true;
+    tui-apps.enable = true;
+    yazi.enable = true;
     zellij.enable = true;
   };
 }

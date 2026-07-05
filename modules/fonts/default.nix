@@ -1,19 +1,26 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
+let
+  cfg = config.my.modules.fonts;
+in
 {
-  home.packages = with pkgs; [
-    # jetbrains-mono
-    victor-mono
-    ibm-plex
-    nerd-fonts.symbols-only
-    lilex
-    nerd-fonts.lilex
+  options.my.modules.fonts.enable = lib.mkEnableOption "fonts";
 
-    noto-fonts-cjk-serif-static
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      victor-mono
+      ibm-plex
+      nerd-fonts.symbols-only
+      lilex
+      nerd-fonts.lilex
 
-    inter
-  ];
+      noto-fonts-cjk-serif-static
+
+      inter
+    ];
+  };
 }

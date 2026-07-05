@@ -4,83 +4,88 @@
   lib,
   ...
 }:
+let
+  cfg = config.my.modules.shell;
+in
 {
-  home.packages = with pkgs; [
-    # skim
-    vivid
-  ];
+  options.my.modules.shell.enable = lib.mkEnableOption "shell tools (zsh, nushell, atuin, carapace, direnv, starship, zoxide)";
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
-  home.shellAliases = {
-    nv = "nvim";
-    zj = "zellij";
-  };
-
-  programs.zsh = {
-    enable = true;
-  };
-
-  programs.nushell = {
-    enable = true;
-    settings = {
-      show_banner = false;
-      completions.algorithm = "fuzzy";
-    };
-    extraConfig = ''
-      $env.LS_COLORS = (vivid generate catppuccin-mocha)
-    '';
-    environmentVariables = config.home.sessionVariables;
-    shellAliases = config.home.shellAliases;
-    plugins = with pkgs.nushellPlugins; [
-      # skim
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      vivid
     ];
-  };
 
-  programs.atuin = {
-    enable = true;
-    enableNushellIntegration = true;
-    settings = {
-      enter_accept = false;
+    home.sessionVariables = {
+      EDITOR = "nvim";
     };
-  };
 
-  programs.carapace = {
-    enable = true;
-    enableNushellIntegration = true;
-  };
+    home.shellAliases = {
+      nv = "nvim";
+      zj = "zellij";
+    };
 
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    enableNushellIntegration = true;
-    nix-direnv.enable = true;
-  };
+    programs.zsh = {
+      enable = true;
+    };
 
-  programs.starship = {
-    enable = true;
-    enableNushellIntegration = true;
-    settings = {
-      add_newline = false;
-      character = {
-        success_symbol = "[➜](bold green)";
-        error_symbol = "[➜](bold red)";
+    programs.nushell = {
+      enable = true;
+      settings = {
+        show_banner = false;
+        completions.algorithm = "fuzzy";
       };
-      time.disabled = false;
-      format = lib.concatStringsSep "" [
-        "$all"
-        "$time"
-        "$line_break"
-        "$jobs"
-        "$character"
+      extraConfig = ''
+        $env.LS_COLORS = (vivid generate catppuccin-mocha)
+      '';
+      environmentVariables = config.home.sessionVariables;
+      shellAliases = config.home.shellAliases;
+      plugins = with pkgs.nushellPlugins; [
       ];
     };
-  };
 
-  programs.zoxide = {
-    enable = true;
-    enableNushellIntegration = true;
+    programs.atuin = {
+      enable = true;
+      enableNushellIntegration = true;
+      settings = {
+        enter_accept = false;
+      };
+    };
+
+    programs.carapace = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
+
+    programs.direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      enableNushellIntegration = true;
+      nix-direnv.enable = true;
+    };
+
+    programs.starship = {
+      enable = true;
+      enableNushellIntegration = true;
+      settings = {
+        add_newline = false;
+        character = {
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[➜](bold red)";
+        };
+        time.disabled = false;
+        format = lib.concatStringsSep "" [
+          "$all"
+          "$time"
+          "$line_break"
+          "$jobs"
+          "$character"
+        ];
+      };
+    };
+
+    programs.zoxide = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
   };
 }
