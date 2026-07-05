@@ -11,4 +11,11 @@
     raycast
     shottr
   ];
+
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (pkgs.lib.getName pkg) [
+      "raycast"
+      "shottr"
+    ];
 }

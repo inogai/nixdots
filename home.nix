@@ -20,11 +20,4 @@
   news.display = "silent";
 
   programs.home-manager.enable = true;
-
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (pkgs.lib.getName pkg) [
-      "raycast"
-      "shottr"
-    ];
 }
