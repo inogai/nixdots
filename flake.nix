@@ -81,7 +81,6 @@
           ./modules/jankyborders
           ./modules/kitty
           ./modules/latex
-          ./modules/opencode
           ./modules/qutebrowser
           ./modules/shell
           ./modules/sketchybar
