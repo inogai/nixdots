@@ -72,10 +72,18 @@ in
           success_symbol = "[➜](bold green)";
           error_symbol = "[➜](bold red)";
         };
+        os.disabled = false;
+        os.format = "on [$symbol]($style)";
+        os.symbols = {
+          Macos = " ";
+          Debian = " ";
+          Windows = " ";
+        };
         time.disabled = false;
         format = lib.concatStringsSep "" [
           "$all"
           "$time"
+          "$os"
           "$line_break"
           "$jobs"
           "$character"
