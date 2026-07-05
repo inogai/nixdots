@@ -80,7 +80,6 @@
           ./modules/gui-apps
           ./modules/jankyborders
           ./modules/kitty
-          ./modules/latex
           ./modules/qutebrowser
           ./modules/shell
           ./modules/sketchybar
