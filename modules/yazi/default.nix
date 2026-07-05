@@ -41,16 +41,6 @@ in
               ];
             }
             {
-              on = "o";
-              run = "open --hovered";
-              desc = "Open hovered";
-            }
-            {
-              on = "O";
-              run = "open --hovered --interactive";
-              desc = "Open hovered interactively";
-            }
-            {
               on = [ "<S-p>" ];
               run = [
                 "enter"
@@ -58,22 +48,6 @@ in
                 "leave"
               ];
               desc = "Paste into Folder";
-            }
-            {
-              on = [
-                "g"
-                "d"
-              ];
-              run = "cd ~/Downloads/";
-              desc = "cd Downloads";
-            }
-            {
-              on = [
-                "g"
-                "l"
-              ];
-              run = "shell --block lazygit";
-              desc = "Lazygit";
             }
             {
               on = [ "R" ];
