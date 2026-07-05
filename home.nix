@@ -32,4 +32,8 @@
       "raycast"
       "shottr"
     ];
+
+  my.modules = {
+    yazi.enable = true;
+  };
 }

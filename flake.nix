@@ -58,7 +58,6 @@
       overlay =
         final: prev:
         (nur.overlays.default final prev)
-        // (nix-yazi-flavors.overlays.default final prev)
         // {
           nvim-inogai = nvim-inogai.outputs.packages.${final.system}.nvim-inogai;
           sbar-inogai = sbar-inogai.outputs.packages.${final.system}.sbar-inogai;
@@ -95,6 +94,7 @@
         # to pass through arguments to home.nix
         extraSpecialArgs = {
           inherit nix-colors;
+          yaziFlavors = nix-yazi-flavors.packages.${system};
         };
       };
     };
