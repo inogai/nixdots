@@ -87,6 +87,7 @@
           ./modules/tui-apps
           ./modules/yazi
           ./modules/zellij
+          ./modules/pi
 
           ./home.nix
         ];

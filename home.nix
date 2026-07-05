@@ -52,5 +52,8 @@
     tui-apps.enable = true;
     yazi.enable = true;
     zellij.enable = true;
+
+    pi.enable = true;
+    pi.theme = "dark/dark";
   };
 }
