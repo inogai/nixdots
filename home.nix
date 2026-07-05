@@ -37,5 +37,6 @@
     yazi.enable = true;
     kitty.enable = true;
     kitty.mapShiftSpaceToCxSpace = true;
+    zellij.enable = true;
   };
 }
