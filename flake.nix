@@ -82,7 +82,6 @@
           ./modules/kitty
           ./modules/latex
           ./modules/opencode
-          ./modules/podman
           ./modules/qutebrowser
           ./modules/shell
           ./modules/sketchybar
