@@ -50,7 +50,7 @@
       ...
     }:
     let
-      system = "aarch64-darwin";
+      system = "x86_64-linux";
       overlays = [
         nur.overlays.default
         # nvim-inogai's own overlay re-wraps `final.neovim-unwrapped`, which
@@ -63,12 +63,10 @@
           nix-ai-tools = nix-ai-tools.packages.${final.system};
         })
       ];
-      pkgs = nixpkgs.legacyPackages.${system}.extend (
-        nixpkgs.lib.composeManyExtensions overlays
-      );
+      pkgs = nixpkgs.legacyPackages.${system}.extend (nixpkgs.lib.composeManyExtensions overlays);
     in
     {
-      homeConfigurations."inogai" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."alexlychen" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,

@@ -141,11 +141,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771851181,
-        "narHash": "sha256-gFgE6mGUftwseV3DUENMb0k0EiHd739lZexPo5O/sdQ=",
+        "lastModified": 1783222121,
+        "narHash": "sha256-E/ElL373TO8lQ2aMvYyzN+k4xkVaUGoRqoa8AtM71tI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9a4b494b1aa1b93d8edf167f46dc8e0c0011280c",
+        "rev": "a1645f40777620c4bd2b6d854b290c2fc354a266",
         "type": "github"
       },
       "original": {
@@ -204,11 +204,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1758494789,
-        "narHash": "sha256-jNqW/LxFz5jz5sBtxHn//q5TQuiS2t5b8jqU9xm2V78=",
+        "lastModified": 1781260255,
+        "narHash": "sha256-q0U+qy5rMXFE/112HSNeCu6ulduyb7Bl91q1YWy+ZF4=",
         "owner": "aguirre-matteo",
         "repo": "nix-yazi-flavors",
-        "rev": "4a02f027c97f83cfc1036618c1d718017d3d331b",
+        "rev": "8b75c18759810171bb9e606f7bad85ff30a6bdb1",
         "type": "github"
       },
       "original": {
@@ -265,11 +265,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1771482645,
-        "narHash": "sha256-MpAKyXfJRDTgRU33Hja+G+3h9ywLAJJNRq4Pjbb4dQs=",
+        "lastModified": 1783247743,
+        "narHash": "sha256-9b2xGt5CAd6WriPJOZs/EYXq9fGVCeoisYo1P3nhL2Y=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "724cf38d99ba81fbb4a347081db93e2e3a9bc2ae",
+        "rev": "c4013e501c048ae7c4a8940c92837636042bf6c3",
         "type": "github"
       },
       "original": {
@@ -303,11 +303,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771925741,
-        "narHash": "sha256-n1XQq9dnK+y1knu5zlltCJzlBa5lMB3mM2RvTGqDuO0=",
+        "lastModified": 1783302632,
+        "narHash": "sha256-xHT5YCPOnD2HFlDG55tNYcJbJ9v3XQxvw+Fcdv0e35A=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "9442788cd725b913907de9028def4b3ed15af905",
+        "rev": "fc4141d70189a59ce2d5641a33c408398edce44e",
         "type": "github"
       },
       "original": {
@@ -322,11 +322,11 @@
         "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1783254535,
-        "narHash": "sha256-tZEoqm9A29pa6QoRUzAIqSPSw24idptix5F5nDFu3XA=",
+        "lastModified": 1783302854,
+        "narHash": "sha256-wHblbQP9fxO/WnGdk12J8YdqoSxeI/+H8rGP3Uy19h4=",
         "owner": "inogai",
         "repo": "nvim-inogai",
-        "rev": "ddc78ed9be02d7fd92d4f983c053dff24166b7e2",
+        "rev": "3ee94d5713c6e0a15fa93a3be327bf95305a8793",
         "type": "github"
       },
       "original": {

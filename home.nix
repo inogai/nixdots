@@ -11,8 +11,8 @@
   # colorScheme = nix-colors.colorSchemes.gruvbox-dark-medium;
   colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
 
-  home.username = "inogai";
-  home.homeDirectory = "/Users/inogai";
+  home.username = "alexlychen";
+  home.homeDirectory = "/home/alexlychen";
   home.stateVersion = "26.05";
 
   news.display = "silent";
@@ -22,8 +22,8 @@
   home.file = { };
 
   home.packages = with pkgs; [
-    raycast
-    shottr
+    # raycast
+    # shottr
 
     neovim
     nodejs
@@ -38,21 +38,22 @@
 
   my.modules = {
     # Software Modules - Only for MacOS
-    aerospace.enable = true;
-    fonts.enable = true;
-    jankyborders.enable = true;
-    kitty.enable = true;
-    kitty.mapShiftSpaceToCxSpace = true;
-    qutebrowser.enable = true;
-    sketchybar.enable = true;
-    syncthing.enable = true;
+    # aerospace.enable = true;
+    # fonts.enable = true;
+    # jankyborders.enable = true;
+    # kitty.enable = true;
+    # kitty.mapShiftSpaceToCxSpace = true;
+    # qutebrowser.enable = true;
+    # sketchybar.enable = true;
+    # syncthing.enable = true;
 
     cli-utils.enable = true;
-    cli-extras.enable = true;
+    # cli-extras.enable = true;
     shell.enable = true;
     tui-apps.enable = true;
     yazi.enable = true;
     zellij.enable = true;
+    zellij.keyLayout = "windows";
 
     pi.enable = true;
     pi.theme = "dark/dark";
