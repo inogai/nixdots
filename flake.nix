@@ -73,6 +73,7 @@
         # the path to your home.nix.
         modules = [
           nix-colors.homeManagerModules.default
+          ./modules/clipboard
           ./modules/aerospace
           ./modules/cli-utils
           ./modules/cli-extras

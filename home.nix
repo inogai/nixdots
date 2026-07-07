@@ -49,6 +49,8 @@
 
     cli-utils.enable = true;
     # cli-extras.enable = true;
+    clipboard.enable = true;
+    clipboard.backend = "wsl";
     shell.enable = true;
     tui-apps.enable = true;
     yazi.enable = true;
