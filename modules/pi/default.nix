@@ -17,7 +17,6 @@ let
   # so pi reconciles them on startup. pi installs missing packages automatically
   # after the project is trusted; here they are global (user-scope) packages.
   packages = [
-    "npm:@hypabolic/pi-hypa"
     "npm:pi-web-access"
     "npm:@gotgenes/pi-permission-system"
   ];
@@ -64,29 +63,6 @@ in
     # which is already on PATH, so no session-variable PATH hack is needed.
     home.packages = [
       cfg.package
-      (pkgs.writeShellApplication {
-        name = "hypa";
-        runtimeInputs = [ pkgs.nodejs ];
-        text = ''
-          SELF="$(realpath "$0" 2>/dev/null || printf '%s' "$0")"
-          OLD_IFS="$IFS"
-          IFS=:
-          for dir in $PATH; do
-            [ -n "$dir" ] || continue
-            candidate="$dir/hypa"
-            [ -x "$candidate" ] || continue
-            real_candidate="$(realpath "$candidate" 2>/dev/null || printf '%s' "$candidate")"
-            if [ "$real_candidate" != "$SELF" ]; then
-              IFS="$OLD_IFS"
-              exec "$candidate" "$@"
-            fi
-          done
-          IFS="$OLD_IFS"
-          # Fall back to the bundled hypa from @hypabolic/pi-hypa.
-          BUNDLED="$HOME/.pi/agent/npm/node_modules/@hypabolic/hypa/bin.js"
-          exec node "$BUNDLED" "$@"
-        '';
-      })
     ];
 
     # Declarative local extensions and skills. Sourced as real files from this
