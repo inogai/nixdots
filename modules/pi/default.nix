@@ -19,6 +19,7 @@ let
   packages = [
     "npm:@hypabolic/pi-hypa"
     "npm:pi-web-access"
+    "npm:@gotgenes/pi-permission-system"
   ];
 
   # Global settings.json written by Home Manager. Anything pi manages at
@@ -97,5 +98,9 @@ in
       "${extensionDir}/semantic-commit/index.ts";
     home.file.".pi/agent/skills/semantic-commit/SKILL.md".source =
       "${skillDir}/semantic-commit/SKILL.md";
+
+    # Declarative config for @gotgenes/pi-permission-system.
+    home.file.".pi/agent/extensions/pi-permission-system/config.json".source =
+      "${extensionDir}/pi-permission-system/config.json";
   };
 }

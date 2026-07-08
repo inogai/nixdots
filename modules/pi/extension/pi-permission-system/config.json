@@ -1,0 +1,22 @@
+{
+  "permission": {
+    "*": "ask",
+    "path": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "bash": {
+      "rm -rf *": "deny",
+      "sudo *": "ask",
+    },
+    "web_search": "allow",
+    "fetch_content": "allow",
+    "get_search_content": "allow",
+    "hypa_ls": "allow",
+    "hypa_read": "allow",
+    "hypa_find": "allow",
+    "external_directory": "ask"
+  }
+}
