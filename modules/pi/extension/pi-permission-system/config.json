@@ -9,7 +9,7 @@
     },
     "bash": {
       "rm -rf *": "deny",
-      "sudo *": "ask",
+      "sudo *": "ask"
     },
     "web_search": "allow",
     "fetch_content": "allow",
