@@ -15,9 +15,7 @@ in
       type = lib.types.enum [
         "auto"
         "wsl"
-        "wl"
-        "xclip"
-        "osc52"
+        "win32yank"
       ];
       default = "auto";
       description = ''

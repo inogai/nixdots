@@ -339,11 +339,11 @@
         "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1783519988,
-        "narHash": "sha256-MyRqk/GX7gvfn5LhX6oza/rU9hsFxS3ZsCTOZStSnwk=",
+        "lastModified": 1783576007,
+        "narHash": "sha256-+Waa8iVW/cduwPq/pcE7za3VeoKZDcLMqWrE34TpbEg=",
         "owner": "inogai",
         "repo": "nvim-inogai",
-        "rev": "bf4ff6752cf4cb147118d14bb7557f4297730793",
+        "rev": "f099f3cc059b7331e48b84f91cc8221170677f31",
         "type": "github"
       },
       "original": {
