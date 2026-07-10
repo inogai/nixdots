@@ -31,7 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-yazi-flavors = {
-      url = "github:aguirre-matteo/nix-yazi-flavors";
+      url = "github:inogai/nix-yazi-flavors";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-ai-tools.url = "github:numtide/nix-ai-tools";
@@ -122,9 +122,7 @@
               qutebrowser = inputs.nixpkgs-old.legacyPackages.${final.system}.qutebrowser;
             })
           ];
-          pkgs = nixpkgs.legacyPackages.${p.system}.extend (
-            nixpkgs.lib.composeManyExtensions overlays
-          );
+          pkgs = nixpkgs.legacyPackages.${p.system}.extend (nixpkgs.lib.composeManyExtensions overlays);
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;

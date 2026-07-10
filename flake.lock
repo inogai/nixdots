@@ -205,15 +205,15 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1781260255,
-        "narHash": "sha256-q0U+qy5rMXFE/112HSNeCu6ulduyb7Bl91q1YWy+ZF4=",
-        "owner": "aguirre-matteo",
+        "lastModified": 1783651614,
+        "narHash": "sha256-0NlcIeODoekCmzQbinAjoL/PJZwNlnNXJima0g2lOqM=",
+        "owner": "inogai",
         "repo": "nix-yazi-flavors",
-        "rev": "8b75c18759810171bb9e606f7bad85ff30a6bdb1",
+        "rev": "6ba7e31235297bfb8d40a53a9825144a1a249364",
         "type": "github"
       },
       "original": {
-        "owner": "aguirre-matteo",
+        "owner": "inogai",
         "repo": "nix-yazi-flavors",
         "type": "github"
       }
