@@ -70,7 +70,6 @@ in
   home.file = { };
 
   home.packages = cfg.packages ++ [
-    pkgs.neovim
     pkgs.nodejs
   ];
 
@@ -80,6 +79,8 @@ in
       "raycast"
       "shottr"
     ];
+
+  wrappers.neovim.enable = true;
 
   my.modules = lib.mkMerge [
     # Shared across every preset.
@@ -91,7 +92,6 @@ in
       zellij.enable = true;
 
       pi.enable = true;
-      pi.theme = "dark/dark";
     }
     # Preset-specific toggles.
     cfg.modules
