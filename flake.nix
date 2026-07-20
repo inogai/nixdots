@@ -87,6 +87,7 @@
       # only enabled from `home.nix` for the presets that need them.
       sharedModules = [
         nix-colors.homeManagerModules.default
+        nvim-inogai.homeModules.default
         ./modules/aerospace
         ./modules/cli-utils
         ./modules/cli-extras
