@@ -25,80 +25,78 @@ in
   options.my.modules.cli-utils.enable = lib.mkEnableOption "essential CLI utilities";
 
   config = lib.mkIf cfg.enable {
-    home.packages =
-      with pkgs;
-      [
-        # --- Core / file operations ---
-        coreutils
-        findutils
-        diffutils
-        file
-        which
-        gnutar
-        p7zip
-        zstd
-        gzip
-        xz
-        unzip
-        zip
-        trash-cli
+    home.packages = with pkgs; [
+      # --- Core / file operations ---
+      coreutils
+      findutils
+      diffutils
+      file
+      which
+      gnutar
+      p7zip
+      zstd
+      gzip
+      xz
+      unzip
+      zip
+      trash-cli
 
-        # --- Networking ---
-        curl
-        wget
-        dig
-        httpie
-        openssh
+      # --- Networking ---
+      curl
+      wget
+      dig
+      httpie
+      openssh
 
-        # --- Search / filter / view ---
-        ripgrep
-        fd
-        jq
-        yq-go
-        less
-        bat
-        tree
-        delta
+      # --- Search / filter / view ---
+      ripgrep
+      fd
+      jq
+      yq-go
+      less
+      bat
+      tree
+      delta
 
-        # --- Data / text processing ---
-        gnused
-        gawk
-        bc
-        perl
-        python3
+      # --- Data / text processing ---
+      gnused
+      gawk
+      bc
+      perl
+      python3
 
-        # --- System / process inspection ---
-        util-linux
-        lsof
-        htop
-        btop
+      # --- System / process inspection ---
+      util-linux
+      lsof
+      htop
+      btop
 
-        # --- Security / crypto ---
-        gnupg
-        age
-        openssl
+      # --- Security / crypto ---
+      gnupg
+      age
+      openssl
 
-        # --- VCS ---
-        git
-        github-cli
-        git-lfs
-        lazygit
+      # --- VCS ---
+      git
+      github-cli
+      git-lfs
+      lazygit
 
-        # --- Nix ---
-        nix-prefetch-git
-        nixpkgs-fmt
-        nvd
-        nix-output-monitor
+      # --- Nix ---
+      nix-prefetch-git
+      nixpkgs-fmt
+      nvd
+      nix-output-monitor
 
-        # --- macOS platform helpers ---
-        (writeShellScriptBin "noti" (builtins.readFile ./noti))
+      # --- macOS platform helpers ---
+      (writeShellScriptBin "noti" (builtins.readFile ./noti))
 
-        # --- Themed wrappers ---
-        (writeShellScriptBin "fzf" ''
-          export FZF_DEFAULT_OPTS="${lib.concatStringsSep " " fzfOptions}"
-          exec ${pkgs.fzf}/bin/fzf "$@"
-        '')
-      ];
+      # --- Themed wrappers ---
+      (writeShellScriptBin "fzf" ''
+        export FZF_DEFAULT_OPTS="${lib.concatStringsSep " " fzfOptions}"
+        exec ${pkgs.fzf}/bin/fzf "$@"
+      '')
+    ];
 
     programs.ssh = {
       enable = true;
@@ -108,6 +106,7 @@ in
         forwardAgent = true;
       };
     };
+
     services.ssh-agent = {
       enable = true;
       defaultMaximumIdentityLifetime = 3600;
