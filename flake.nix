@@ -89,6 +89,7 @@
         ./modules/cli-extras
         ./modules/clipboard
         ./modules/fonts
+        ./modules/gpg
         ./modules/jankyborders
         ./modules/kitty
         ./modules/qutebrowser

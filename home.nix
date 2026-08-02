@@ -34,6 +34,8 @@ let
         cli-extras.enable = true;
         clipboard.enable = false;
         zellij.keyLayout = "mac";
+
+        gpg.pinentry = "touchid";
       };
     };
     windows = {
@@ -48,6 +50,8 @@ let
         clipboard.backend = "win32yank";
         wsl.enable = true;
         zellij.keyLayout = "windows";
+
+        gpg.pinentry = "curses";
       };
     };
   };
@@ -87,6 +91,7 @@ in
     # Shared across every preset.
     {
       cli-utils.enable = true;
+      gpg.enable = true;
       shell.enable = true;
       tui-apps.enable = true;
       yazi.enable = true;
