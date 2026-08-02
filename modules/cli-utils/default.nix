@@ -101,9 +101,9 @@ in
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks."*" = {
-        addKeysToAgent = "12h";
-        forwardAgent = true;
+      settings."*" = {
+        AddKeysToAgent = "12h";
+        ForwardAgent = true;
       };
     };
 
