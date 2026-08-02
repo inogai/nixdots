@@ -25,11 +25,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvim-inogai.url = "github:inogai/nvim-inogai";
-    sbar-inogai = {
-      url = "github:inogai/sbar-inogai";
-      # url = "git+file:///Users/inogai/flakes/sbar-inogai/";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    sbar-inogai.url = "github:inogai/sbar-inogai";
     nix-yazi-flavors = {
       url = "github:inogai/nix-yazi-flavors";
       inputs.nixpkgs.follows = "nixpkgs";
