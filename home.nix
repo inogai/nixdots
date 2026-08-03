@@ -46,6 +46,7 @@ let
         cli-extras.enable = false;
         clipboard.enable = true;
         clipboard.backend = "win32yank";
+        wsl.enable = true;
         zellij.keyLayout = "windows";
       };
     };

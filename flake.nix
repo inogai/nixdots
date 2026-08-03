@@ -100,6 +100,7 @@
         ./modules/sketchybar
         ./modules/syncthing
         ./modules/tui-apps
+        ./modules/wsl
         ./modules/yazi
         ./modules/zellij
         ./modules/pi
