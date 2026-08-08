@@ -20,6 +20,7 @@ let
       packages = with pkgs; [
         raycast
         shottr
+        handy
       ];
       modules = {
         aerospace.enable = true;
