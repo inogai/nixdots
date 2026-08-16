@@ -8,7 +8,15 @@ let
   cfg = config.my.modules.shell;
 in
 {
-  options.my.modules.shell.enable = lib.mkEnableOption "shell tools (zsh, nushell, atuin, carapace, direnv, starship, zoxide)";
+  options.my.modules.shell = {
+    enable = lib.mkEnableOption "shell tools (nushell, atuin, carapace, starship, zoxide)";
+
+    zsh = {
+      enable = lib.mkEnableOption "zsh (only needed where the OS login shell is zsh)" // {
+        default = false;
+      };
+    };
+  };
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
@@ -21,11 +29,8 @@ in
 
     home.shellAliases = {
       nv = "nvim";
+    } // lib.optionalAttrs config.my.modules.zellij.enable {
       zj = "zellij";
-    };
-
-    programs.zsh = {
-      enable = true;
     };
 
     programs.nushell = {
@@ -54,13 +59,6 @@ in
     programs.carapace = {
       enable = true;
       enableNushellIntegration = true;
-    };
-
-    programs.direnv = {
-      enable = true;
-      enableBashIntegration = true;
-      enableNushellIntegration = true;
-      nix-direnv.enable = true;
     };
 
     programs.starship = {
@@ -94,6 +92,10 @@ in
     programs.zoxide = {
       enable = true;
       enableNushellIntegration = true;
+    };
+
+    programs.zsh = lib.mkIf config.my.modules.shell.zsh.enable {
+      enable = true;
     };
   };
 }
